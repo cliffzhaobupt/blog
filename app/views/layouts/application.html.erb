@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Blog</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+    <div class="top-header-background">
+        <div class="header-content-area clear-fix">
+            <div class="site-title">ブログ課題</div>
+            <div class="user-admin">
+                <% unless @login %>
+                    <a class="J_LogInBtn" href="javascript:void(0)">ログイン</a>
+                    <a class="J_SignUpBtn" href="javascript:void(0)">登録</a>
+                <% else %>
+                    <span>ようこそ、<%= @username_login %>さん</span>
+                    <a href="">新規ブログ</a>
+                    <a href="">ブログ一覧</a>
+                    <a class="J_LogOutBtn" href="javascript:void(0)">ログアウト</a>
+                <% end %>
+            </div>
+        </div>
+    </div>
+
+    <div class="wrapper">
+        <%= yield %>
+    </div>
+
+    <div class="pop-up J_LoginPopup" style="display: none;">
+        <div class="pop-up-title header-background">
+            <span>ログイン</span>
+            <a class="close-pop-up J_ClosePopup" href="javascript:void(0)">X</a>
+        </div>
+        <form class="J_LogInForm" action="" method="post">
+            <div class="input-field">
+                <label for="username">ブログID</label>
+                <input type="text" id="username" name="username"/>
+            </div>
+            <div class="input-field">
+                <label for="password">パスワード</label>
+                <input type="password" id="password" name="password"/>
+            </div>
+            <div class="input-field">
+                <button type="submit">ログイン</button>
+                <!-- <input type="button" value="無料登録"/> -->
+            </div>
+        </form>
+    </div>
+
+    <div class="pop-up J_SignupPopup" style="display: none;">
+        <div class="pop-up-title header-background">
+            <span>登録</span>
+            <a class="close-pop-up J_ClosePopup" href="javascript:void(0)">X</a>
+        </div>
+        <form class="J_SignUpForm" action="" method="post">
+            <div class="input-field">
+                <label for="su-username">ブログID</label>
+                <input type="text" id="su-username" name="username"/>
+            </div>
+            <div class="input-field">
+                <label for="su-password">パスワードを作成</label>
+                <input type="password" id="su-password" name="password"/>
+            </div>
+            <div class="input-field">
+                <label for="su-password-re">パスワードを再入力</label>
+                <input type="password" id="su-password-re" name="password-re"/>
+            </div>
+            <div class="input-field">
+                <label for="email">E-mail</label>
+                <input type="text" id="email" name="email"/>
+            </div>
+            <div class="input-field">
+                <label for="gender">性別</label>
+                <select id="gender" name="gender">
+                    <option value="none">選択してください</option>
+                    <option value="female">女性</option>
+                    <option value="male">男性</option>
+                </select>
+            </div>
+            <div class="input-field">
+                <button type="submit">無料登録</button>
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>

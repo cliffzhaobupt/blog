@@ -1,0 +1,192 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+
+body {
+    background: url(bg3.jpg) top center no-repeat;
+}
+
+.wrapper {
+    width: 950px;
+    margin: 100px auto 0;
+}
+
+body, p, h1, h2 {
+    margin: 0;
+    padding: 0;
+}
+
+body, input, button, select, textarea {
+    font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif, "メイリオ", Meiryo;
+    color: #333;
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+    margin: 0;
+}
+
+a:hover {
+    color: #f60;
+    transition: color 0.2s linear;
+    -webkit-transition: color 0.2s linear;
+    -moz-transition: color 0.2s linear;
+    -o-transition: color 0.2s linear;
+}
+
+.clear-fix:after {
+    content: ' ';
+    width: 0;
+    height: 0;
+    display: block;
+    clear: both;
+}
+
+.top-header-background {
+    /*background: #ddd;*/
+    /*background-image: -moz-linear-gradient(top, #ffffff, #dddddd); /* Firefox */
+    /*background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #ffffff), color-stop(1, #dddddd)); /* Saf4+, Chrome */
+    /*filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#dddddd', GradientType='0'); /* IE*/
+    background: url(top-nav-bg.png) 0 0 repeat-x;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.header-background {
+    background-image: -moz-linear-gradient(top, #ffffff, #dddddd); /* Firefox */
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #ffffff), color-stop(1, #dddddd)); /* Saf4+, Chrome */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#dddddd', GradientType='0'); /* IE*/
+}
+
+.header-content-area {
+    font-size: 16px;
+    width: 950px;
+    margin: auto;
+    line-height: 2;
+    color: #fff;
+}
+
+.site-title {
+    float: left;
+    width: 100px;
+    /*text-shadow: 3px 3px 15px #444444;*/
+    font-size: 20px;
+}
+
+.user-admin {
+    float: right;
+    width: 800px;
+    text-align: right;
+    margin-top: 8px;
+}
+
+.user-admin a {
+    padding: 0 10px;
+    color: #fff;
+}
+
+.user-admin a:hover {
+    color: #f60;
+    transition: color 0.2s linear;
+    -webkit-transition: color 0.2s linear;
+    -moz-transition: color 0.2s linear;
+    -o-transition: color 0.2s linear;
+}
+
+.user-admin span {
+    font-size: 12px;
+    padding: 0 10px;
+}
+
+.pop-up {
+    font: 12px;
+    position: fixed;
+    top: 200px;
+    left: 50%;
+    margin-left: -200px;
+    width: 400px;
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid #ccc;
+    box-shadow: 0 0 5px #ccc;
+    padding-bottom: 10px;
+}
+
+.pop-up-title {
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+    line-height: 2;
+    padding: 0 1em;
+}
+
+.close-pop-up {
+    float: right;
+}
+
+.pop-up button {
+    width: 200px;
+    line-height: 22px;
+    font-size: 14px;
+    background: #5B89DA;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.pop-up button:hover {
+    color: #f60;
+    background: #ccc;
+    transition: color 0.2s linear, background 0.2s linear;
+    -webkit-transition: color 0.2s linear, background 0.2s linear;
+    -moz-transition: color 0.2s linear, background 0.2s linear;
+    -o-transition: color 0.2s linear, background 0.2s linear;
+}
+
+.pop-up .input-field {
+    text-align: center;
+    margin: 10px 0;
+    font-size: 14px;
+}
+
+.pop-up .input-field input,
+.pop-up .input-field select {
+    width: 160px;
+}
+
+.pop-up .input-field:last-child input {
+    font-size: 16px;
+    width: 80px;
+    margin: 20px 0 10px;
+}
+
+.pop-up label {
+    display: inline-block;
+    width: 80px;
+    margin-right: 20px;
+    text-align: right;
+}
+
+.J_SignupPopup {
+    top: 100px;
+}
+
+.pop-up .error-msg {
+    margin-right: 54px;
+    color: red;
+    font-size: 12px;
+    text-align: right;
+}
