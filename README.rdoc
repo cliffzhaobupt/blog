@@ -2,8 +2,6 @@
 
 Blog Excercise
 
-<tt>http://0.0.0.0:3000/blog/listbyuser</tt>
-
 == Week 1
 
 * Sign up
@@ -14,3 +12,5 @@ Click log in button, enter username and password, then log in. After logging in,
 
 * Log out
 In logged-in state, click log out button, return to the current page with logged-out state
+
+Please check these function by browse <tt>http://0.0.0.0:3000/blog/listbyuser</tt>
