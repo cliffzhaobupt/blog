@@ -1,28 +1,16 @@
-== README
+== Introduction
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Blog Excercise
 
-Things you may want to cover:
+<tt>http://0.0.0.0:3000/blog/listbyuser</tt>
 
-* Ruby version
+== Week 1
 
-* System dependencies
+* Sign up
+Click sign up button, enter personal information and sign up. After signing up, return to the current page with logged-in state.
 
-* Configuration
+* Log in
+Click log in button, enter username and password, then log in. After logging in, return to the current page with logged-in state.
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+* Log out
+In logged-in state, click log out button, return to the current page with logged-out state
