@@ -30,7 +30,7 @@
     }
 
     .main-content-wrapper {
-        margin-top: 52px;
+        margin: 52px 0;
 
         h1 {
             font-weight: normal;
@@ -106,6 +106,16 @@
                 }
                 padding-bottom: 20px;
                 border-bottom: 1px solid #DB780C;
+            }
+
+            .blog-pagination {
+                text-align: right;
+
+                li {
+                    display: inline-block;
+                    font-size: 12px;
+                    margin: 0 5px;
+                }
             }
         }
     }
