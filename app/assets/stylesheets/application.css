@@ -13,7 +13,7 @@
  */
 
 body {
-    background: url(bg3.jpg) top center no-repeat;
+    background: #e9e5db url(bg3.jpg) top center no-repeat;
 }
 
 .wrapper {
@@ -21,9 +21,17 @@ body {
     margin: 100px auto 0;
 }
 
-body, p, h1, h2 {
+ul {
+    list-style: none;
+}
+
+body, p, h1, h2, ul, ol, li, h3, h4 {
     margin: 0;
     padding: 0;
+}
+
+h1, h2 {
+    font-weight: bold;
 }
 
 body, input, button, select, textarea {
@@ -45,7 +53,7 @@ a:hover {
     -o-transition: color 0.2s linear;
 }
 
-.clear-fix:after {
+.clear-float:after {
     content: ' ';
     width: 0;
     height: 0;

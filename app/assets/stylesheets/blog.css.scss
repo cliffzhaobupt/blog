@@ -11,4 +11,102 @@
             font-size: 16px;
         }
     }
+
+    .blogger-links {
+        margin-top: 20px;
+        font-size: 16px;
+
+        li {
+            display: inline-block;
+            border-right: 3px solid #DB780C;
+            padding: 0 20px;
+        }
+        li:first-child {
+            padding-left: 0;
+        }
+        li:last-child {
+            border-right: none;
+        }
+    }
+
+    .main-content-wrapper {
+        margin-top: 52px;
+
+        h1 {
+            font-weight: normal;
+            text-indent: 20px;
+            font-size: 14px;
+            line-height: 25px;
+            background: #DB780C;
+        }
+
+        .left-part {
+            width: 240px;
+            float: left;
+
+            .left-box {
+                background: rgba(255, 255, 255, 0.5);
+                margin-bottom: 20px;
+
+                .left-box-content {
+                    padding: 20px;
+                }
+
+                
+                p, li {
+                    font-size: 14px;
+                }
+            }
+        }
+
+        .right-part {
+            width: 660px;
+            float: right;
+            background: rgba(255, 255, 255, 0.5);
+
+            .blog-wrapper {
+                margin-bottom: 20px;
+            }
+
+            .right-part-content {
+                padding: 20px;
+            }
+
+            h2 {
+                font-weight: normal;
+                font-size: 24px;
+            }
+            h3 {
+                font-weight: normal;
+                font-size: 14px;
+                color: #888;
+            }
+            .blog-content {
+                font-size: 14px;
+                margin: 10px 0 0;
+            }
+
+            .blog-bottom-wrapper {
+                text-align: right;
+
+                li {
+                    display: inline-block;
+
+                    a {
+                        font-size: 14px;
+                        color: #888;
+                    }
+                    a:hover {
+                        color: #f60;
+                        transition: color 0.2s linear;
+                        -webkit-transition: color 0.2s linear;
+                        -moz-transition: color 0.2s linear;
+                        -o-transition: color 0.2s linear;
+                    }
+                }
+                padding-bottom: 20px;
+                border-bottom: 1px solid #DB780C;
+            }
+        }
+    }
 }
