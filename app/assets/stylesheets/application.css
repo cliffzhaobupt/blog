@@ -171,8 +171,13 @@ a:hover {
 }
 
 .pop-up .input-field input,
-.pop-up .input-field select {
+.pop-up .input-field select,
+.pop-up .input-field textarea {
     width: 160px;
+}
+
+.pop-up .input-field textarea {
+    height: 50px;
 }
 
 .pop-up .input-field:last-child input {
@@ -186,6 +191,7 @@ a:hover {
     width: 80px;
     margin-right: 20px;
     text-align: right;
+    vertical-align: top;
 }
 
 .J_SignupPopup {

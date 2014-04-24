@@ -5,9 +5,11 @@ class UserController < ApplicationController
             username: params[:username],
             password: params[:password],
             email: params[:email],
-            gender: params[:gender])
+            gender: params[:gender],
+            self_intro: params[:self_intro])
         if user.save
             session[:username] = params[:username]
+            session[:userid] = user.id
             render(json: {success: true})
         else
             #Get validates messages by: user.errors.messages
@@ -21,6 +23,7 @@ class UserController < ApplicationController
             password: params[:password])
         if user.first
             session[:username] = params[:username]
+            session[:userid] = user.first.id
             render(json: {success: true})
         else
             render(json: {

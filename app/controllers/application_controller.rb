@@ -8,6 +8,7 @@ class ApplicationController < ActionController::Base
     if session[:username]
       @login = true
       @username_login = session[:username]
+      @id_login = session[:userid]
     else
       @login = false
     end

@@ -109,8 +109,8 @@ $(document).ready(function(){
     $('.J_SignUpForm').bind('submit', function (e) {
         var form = $(e.currentTarget),
             willSubmit = true;
-        //Check fill out all the text fields
-        form.find('input').each(function () {
+        //Check fill out all the text fields including textarea
+        form.find('input, textarea').each(function () {
             var target = $(this);
             willSubmit = willSubmit && target.val();
             addOrRemoveErrorMsg(! target.val(), target, 'must-enter', '入力必須項目です。');
@@ -147,7 +147,8 @@ $(document).ready(function(){
                 username: form.find('#su-username').val(),
                 password: form.find('#su-password').val(),
                 email: form.find('#email').val(),
-                gender: form.find('#gender').val()
+                gender: form.find('#gender').val(),
+                self_intro: form.find('#self-intro').val()
             }, function (data) {
                 //Successfully sign-up, remove server side error messages
                 //then, refresh current page - use reload(true)
