@@ -113,7 +113,7 @@ $(document).ready(function(){
         form.find('input').each(function () {
             var target = $(this);
             willSubmit = willSubmit && target.val();
-            addOrRemoveErrorMsg(! target.val(), target, 'must-enter', '入力必須項目です。');
+            addOrRemoveErrorMsg(/^\s+$|^$/.test(target.val()), target, 'must-enter', '入力必須項目です。');            
         });
         //Check passwords r the same
         if (form.find('#su-password').val() != form.find('#su-password-re').val()) {
@@ -172,7 +172,7 @@ $(document).ready(function(){
         form.find('input').each(function () {
             var target = $(this);
             willSubmit = willSubmit && target.val();
-            addOrRemoveErrorMsg(! target.val(), target, 'must-enter', '入力必須項目です。');
+            addOrRemoveErrorMsg(/^\s+$|^$/.test(target.val()), target, 'must-enter', '入力必須項目です。');
         });
 
         if (willSubmit) {
