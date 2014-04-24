@@ -12,7 +12,7 @@ User.create(
     username: 'cliff',
     password: '666666',
     email: 'zhaotianyu@bupt.edu.cn',
-    gender: 'mail',
+    gender: 'male',
     self_intro: %{ようこそ、ぼくのブログへ。どうぞよろしくお願いします。})
 
 ['日本語', '音楽', 'スポーツ', '映画', '旅行'].each do |tag_name|

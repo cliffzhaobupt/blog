@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 20140424051354) do
     t.string   "email"
     t.string   "gender"
     t.string   "self_intro"
+    t.integer  "popularity",          default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "blog_articles_count", default: 0

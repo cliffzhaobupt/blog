@@ -1,74 +1,26 @@
 <div class="blog-list-page-wrapper">
     <div class="blogger-config">
-        <h1>Cliff の ブログ</h1>
+        <h1><%= @blog_title %></h1>
         <h2>Email: iamcliffzhao@gmail.com</h2>
     </div>
     <ul class="blogger-links">
-        <li><a href="javascript:void(0)">ブログ一覧</a></li>
+        <li><%= link_to 'ブログ一覧', blog_listbyuser_path(id: @user.id) %></li>
         <li><a href="javascript:void(0)">画像アルバム</a></li>
         <li><a href="javascript:void(0)">メッセージボックス</a></li>
     </ul>
     <div class="main-content-wrapper clear-float">
-        
         <div class="left-part">
-            <div class="left-box">
-                <h1>プロファイル</h1>
-                <div class="left-box-content">
-                    <div><img src="/assets/cliff.JPG"/></div>
-                    <p>cliff</p>
-                    <p>男性</p>
-                    <p>登録日時：2014.4.22</p>
-                    <p>ブログ数：10</p>
-                    <p>人気：100</p>    
-                </div>
-            </div>
-            <div class="left-box">
-                <h1>自己紹介</h1>
-                <div class="left-box-content">
-                    <p>ようこそ、僕のブログへ。</p>
-                    <p>どうぞよろしくお願いします。</p>
-                </div>
-            </div>
-            <div class="left-box">
-                <h1>タグ</h1>
-                <div class="left-box-content">
-                    <ul>
-                        <li><a href="javascript:void(0)">日本語</a></li>
-                        <li><a href="javascript:void(0)">スポーツ</a></li>
-                        <li><a href="javascript:void(0)">旅行</a></li>
-                        <li><a href="javascript:void(0)">音楽</a></li>
-                        <li><a href="javascript:void(0)">映画</a></li>
-                    </ul>
-                </div>
-            </div>
+
+        <%= render(partial: 'userinfo', object: @user) %>
+            
         </div>
         <div class="right-part">
             <h1>ブログ</h1>
             <div class="right-part-content">
-                <% 8.times do %>
-                <div class="blog-wrapper">
-                    <div class="blog-title-wrapper">
-                        <h2><a href="javascript:void(0)">流れ星</a></h2>
-                        <h3>発表時間：2014-04-23 20:20</h3>
-                        <h3>タグ：日本語 音楽</h3>
-                    </div>
-                    <div class="blog-content">
-                        流れ星　ねえ　キミは何を想ってみているの？<br>
-                        見つけた星　今　ボクの中で確かに輝く光<br>
-                        夢に描いてた場所は　<br>
-                        もう夢みたいじゃないけど<br>
-                        窓に映ってるボクらは似ているのかな？<br>
-                        君は何て言うだろうな？<br>
-                        <br>
-                    </div>
-                    <div class="blog-bottom-wrapper">
-                        <ul>
-                            <li><a href="javascript:void(0)">閲覧数(0)</a></li>
-                            <li><a href="javascript:void(0)">コメント数(0)</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <% end %>
+
+                <%= render(partial: 'article', collection: @user.blog_articles.first(5)) %>
+
+                
                 <ul class="blog-pagination">
                     <li><a href="javascript:void(0)">前へ</a></li>
                     <li>...</li>

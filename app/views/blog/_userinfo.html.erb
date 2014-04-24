@@ -1,0 +1,29 @@
+<div class="left-box">
+    <h1>プロファイル</h1>
+    <div class="left-box-content">
+        <div><img src="/assets/cliff.JPG"/></div>
+        <p><%= userinfo.username %></p>
+        <p><%= judge_gender userinfo.gender %></p>
+        <p>登録日時：<%= userinfo.created_at.to_date %></p>
+        <p>ブログ数：<%= userinfo.blog_articles.size %></p>
+        <p>人気：<%= userinfo.popularity %></p>
+    </div>
+</div>
+
+<div class="left-box">
+    <h1>自己紹介</h1>
+    <div class="left-box-content">
+        <p><%= userinfo.self_intro %></p>
+    </div>
+</div>
+
+<div class="left-box">
+    <h1>タグ</h1>
+    <div class="left-box-content">
+        <ul>
+            <% userinfo.tags.each do |tag| %>
+            <li><a href="javascript:void(0)"><%= tag.name %></a></li>
+            <% end %>
+        </ul>
+    </div>
+</div>

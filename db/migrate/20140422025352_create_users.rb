@@ -6,6 +6,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :email
       t.string :gender
       t.string :self_intro
+      t.integer :popularity, default: 0
 
       t.timestamps
     end
