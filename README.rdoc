@@ -16,4 +16,5 @@ In logged-in state, click log out button, return to the current page with logged
 * Blog list page front end development
 
 After clone, please execute <tt>rake db:migrate</tt> and <tt>rake db:seed</tt>
+
 Please check these function by browse <tt>http://0.0.0.0:3000/blog/listbyuser</tt>
