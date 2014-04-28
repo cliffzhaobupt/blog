@@ -1,3 +1,82 @@
 // Place all the styles related to the User controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.user-list-wrapper {
+
+    .list-title {
+        h1 {
+            font-size: 30px;
+        }
+        h2 {
+            font-size: 16px;
+        }
+    }
+
+    .user-list {
+        margin: 52px 0;
+        background: rgba(255, 255, 255, 0.5);
+        padding-bottom: 20px;
+
+        h3 {
+            font-weight: normal;
+            text-indent: 20px;
+            font-size: 14px;
+            line-height: 25px;
+            background: #DB780C;
+        }
+
+        .list-column {
+            float: left;
+            width: 215px;
+            margin: 0 11px;
+
+            .user-link {
+                padding: 5px;
+                display: block;
+                border: 2px solid #CCCCCC;
+                margin: 20px 0;
+                background: #FFFFFF;
+
+                .img-wrapper {
+                    width: 200px;
+                    height: 200px;
+                    overflow: hidden;
+                }
+
+                .user-name {
+                    font-size: 14px;
+                    margin-top: 5px;
+                    padding: 5px 10px;
+                }
+
+                .self-intro {
+                    padding: 5px 10px;
+                    font-size: 12px;
+                    text-align: right;
+                }
+            }
+
+            .user-link:hover {
+                box-shadow: 0 0 5px #DB780C;
+                border-color: #DB780C;
+                color: #333333;
+            }
+        }
+    }
+
+    .user-pagination {
+        text-align: right;
+        padding-right: 25px;
+
+        li {
+            display: inline-block;
+            font-size: 12px;
+            margin: 0 5px;
+        }
+
+        .current-page {
+            background: #DB780C;
+        }
+    }
+}

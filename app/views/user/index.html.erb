@@ -1,0 +1,35 @@
+<div class="user-list-wrapper">
+    <div class="list-title">
+        <h1>ブログ課題　ホームページ</h1>
+        <h2>ユーザーを選んで、ブログの一覧に進めましょう</h2>
+    </div>
+    <div class="user-list">
+        <h3>ユーザー一覧</h2>
+        <div class="clear-float">
+            <% 4.times do %>
+            <ul class="list-column">
+                <% 3.times do %>
+                <li class="list-item">
+                    <a href="/blog/listbyuser?id=1" target="_blank" class="user-link">
+                        <div class="img-wrapper"><img src="/assets/cliff.JPG"></div>
+                        <p class="user-name">cliff</p>
+                        <p class="self-intro">ようこそ、ぼくのブログへ。どうぞよろしくお願いします。</p>
+                    </a>
+                </li>
+                <% end %>
+            </ul>
+            <% end %>    
+        </div>
+        <ul class="user-pagination">
+            <li><a href="javascript:void(0)">前へ</a></li>
+            <li>...</li>
+            <li class="current-page">1</li>
+            <% (2..10).each do |num| %>
+            <li><a href="javascript:void(0)"><%= num %></a></li>
+            <% end %>
+            <li>...</li>
+            <li><a href="javascript:void(0)">次へ</a></li>
+            <li>合計20ページ</li>
+        </ul>
+    </div>
+</div>

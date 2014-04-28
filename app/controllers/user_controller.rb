@@ -38,4 +38,9 @@ class UserController < ApplicationController
         session[:username] = nil
         render(json: {success: true})
     end
+
+    #user list page
+    def index
+        @users = User.all
+    end
 end
