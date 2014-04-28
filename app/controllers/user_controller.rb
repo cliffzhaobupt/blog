@@ -41,6 +41,16 @@ class UserController < ApplicationController
 
     #user list page
     def index
-        @users = User.all
+        @page_count = (User.all.size / 12.0).ceil
+        @current_page = Integer(params[:page] || 1)
+        @user = {
+            'column_1' => [],
+            'column_2' => [],
+            'column_3' => [],
+            'column_4' => []
+        }
+        User.limit(12).offset((@current_page - 1) * 12).each.with_index do |user, index|
+            @user["column_#{index%4 + 1}"] << user
+        end
     end
 end

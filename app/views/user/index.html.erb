@@ -6,14 +6,14 @@
     <div class="user-list">
         <h3>ユーザー一覧</h2>
         <div class="clear-float">
-            <% 4.times do %>
+            <% (1..4).each do |column_index| %>
             <ul class="list-column">
-                <% 3.times do %>
+                <% @user["column_#{column_index}"].each do |user| %>
                 <li class="list-item">
-                    <a href="/blog/listbyuser?id=1" target="_blank" class="user-link">
+                    <a href=<%= "/blog/listbyuser?id=#{user.id}" %> target="_blank" class="user-link">
                         <div class="img-wrapper"><img src="/assets/cliff.JPG"></div>
-                        <p class="user-name">cliff</p>
-                        <p class="self-intro">ようこそ、ぼくのブログへ。どうぞよろしくお願いします。</p>
+                        <p class="user-name"><%= user.username %></p>
+                        <p class="self-intro"><%= user.self_intro %></p>
                     </a>
                 </li>
                 <% end %>
@@ -21,15 +21,18 @@
             <% end %>    
         </div>
         <ul class="user-pagination">
-            <li><a href="javascript:void(0)">前へ</a></li>
-            <li>...</li>
-            <li class="current-page">1</li>
-            <% (2..10).each do |num| %>
-            <li><a href="javascript:void(0)"><%= num %></a></li>
+            <li><%= link_to_if @current_page > 1, '前へ', user_index_path(page: @current_page - 1) %></li>
+            <!-- <li>...</li> -->
+            <% (1..@page_count).each do |num| %>
+                <% if num == @current_page %>
+                <li class="current-page"><%= num %></li>
+                <% else %>
+                <li><%= link_to num, user_index_path(page: num) %></li>
+                <% end %>
             <% end %>
-            <li>...</li>
-            <li><a href="javascript:void(0)">次へ</a></li>
-            <li>合計20ページ</li>
+            <!-- <li>...</li> -->
+            <li><%= link_to_if @current_page < @page_count, '次へ', user_index_path(page: @current_page + 1) %></li>
+            <li>合計<%= @page_count %>ページ</li>
         </ul>
     </div>
 </div>

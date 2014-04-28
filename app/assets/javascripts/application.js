@@ -11,9 +11,8 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery_ujs
-//= require turbolinks
 //= require_tree .
+
 
 function addOrRemoveErrorMsg (isAdd, target, errorClass, errorMsg, callback) {
     var inputField = target.parent();

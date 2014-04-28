@@ -15,6 +15,15 @@ User.create(
     gender: 'male',
     self_intro: %{ようこそ、ぼくのブログへ。どうぞよろしくお願いします。})
 
+('a'..'z').each.with_index do |name_order, index|
+    User.create(
+        username: "user_#{name_order}",
+        password: '666666',
+        email: "user_#{name_order}@gmail.com",
+        gender: index % 2 == 0 ? 'male' : 'female',
+        self_intro: index % 2 == 0 ? 'ようこそ〜' : 'ようこそ、ぼくのブログへ。どうぞよろしくお願いします。')
+end
+
 ['日本語', '音楽', 'スポーツ', '映画', '旅行'].each do |tag_name|
     Tag.create(
         name: tag_name,
