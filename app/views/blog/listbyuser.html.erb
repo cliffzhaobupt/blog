@@ -17,21 +17,30 @@
         <div class="right-part">
             <h1>ブログ</h1>
             <div class="right-part-content">
+                <% if @has_articles %>
 
                 <%= render(partial: 'article', collection: @articles) %>
 
-                
                 <ul class="blog-pagination">
-                    <li><a href="javascript:void(0)">前へ</a></li>
-                    <li>...</li>
-                    <li class="current-page">1</li>
-                    <% (2..10).each do |num| %>
-                    <li><a href="javascript:void(0)"><%= num %></a></li>
+                    <li><%= link_to_if @current_page > 1, '前へ', blog_listbyuser_path(id: @user.id, page: @current_page - 1) %></li>
+                    <!-- <li>...</li> -->
+                    <% (1..@page_count).each do |num| %>
+                        <% if num == @current_page %>
+                        <li class="current-page"><%= num %></li>
+                        <% else %>
+                        <li><%= link_to num, blog_listbyuser_path(id: @user.id, page: num) %></li>
+                        <% end %>
                     <% end %>
-                    <li>...</li>
-                    <li><a href="javascript:void(0)">次へ</a></li>
-                    <li>合計20ページ</li>
+                    <!-- <li>...</li> -->
+                    <li><%= link_to_if @current_page < @page_count, '次へ', blog_listbyuser_path(id: @user.id, page: @current_page + 1) %></li>
+                    <li>合計<%= @page_count %>ページ</li>
                 </ul>
+                <% else %>
+                <div class="no-blog-wrapper">
+                <img src="/assets/sorry.jpg">
+                <h3 class="no-blog-notice">ただいま、ブログがございません。</h3>
+                </div>
+                <% end %>
             </div>
         </div>
     </div>

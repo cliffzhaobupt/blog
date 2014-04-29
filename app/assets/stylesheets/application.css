@@ -71,6 +71,7 @@ a:hover {
     top: 0;
     left: 0;
     width: 100%;
+    z-index: 100;
 }
 
 .header-background {
@@ -130,6 +131,7 @@ a:hover {
     border: 1px solid #ccc;
     box-shadow: 0 0 5px #ccc;
     padding-bottom: 10px;
+    z-index: 200;
 }
 
 .pop-up-title {

@@ -121,6 +121,19 @@
                     background: #DB780C;
                 }
             }
+
+            .no-blog-wrapper {
+                position: relative;
+
+                .no-blog-notice {
+                    position: absolute;
+                    right: 10px;
+                    bottom: 48px;
+                    width: 450px;
+                    font-size: 28px;
+                    color: #333;
+                }
+            }
         }
     }
 }
