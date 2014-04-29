@@ -1,6 +1,7 @@
 class BlogController < ApplicationController
   BlogPerPage = 5
 
+  #get list by user id and page number
   def listbyuser
     @user = User.find(params[:id])
     @username = @user.username
@@ -13,5 +14,11 @@ class BlogController < ApplicationController
       @current_page = Integer(params[:page] || 1)
       @articles = @user.blog_articles.offset((@current_page - 1) * BlogPerPage).limit(BlogPerPage)  
     end
+  end
+
+  #get ariticle detail by ariticle id
+  def articledetail
+    @article = BlogArticle.find(params[:id])
+    @user = @article.user
   end
 end

@@ -1,13 +1,7 @@
 <div class="blog-list-page-wrapper">
-    <div class="blogger-config">
-        <h1><%= @blog_title %></h1>
-        <h2>Email: iamcliffzhao@gmail.com</h2>
-    </div>
-    <ul class="blogger-links">
-        <li><%= link_to 'ブログ一覧', blog_listbyuser_path(id: @user.id) %></li>
-        <li><a href="javascript:void(0)">画像アルバム</a></li>
-        <li><a href="javascript:void(0)">メッセージボックス</a></li>
-    </ul>
+
+    <%= render(partial: 'pageheader', object: @user) %>
+    
     <div class="main-content-wrapper clear-float">
         <div class="left-part">
 
