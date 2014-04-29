@@ -2,7 +2,7 @@
     <h1>プロファイル</h1>
     <div class="left-box-content">
         <div><img src="/assets/cliff.JPG"/></div>
-        <p><%= userinfo.username %></p>
+        <p class="intro-username"><%= userinfo.username %></p>
         <p><%= judge_gender userinfo.gender %></p>
         <p>登録日時：<%= userinfo.created_at.to_date %></p>
         <p>ブログ数：<%= userinfo.blog_articles.size %></p>
@@ -20,10 +20,14 @@
 <div class="left-box">
     <h1>タグ</h1>
     <div class="left-box-content">
+        <% if userinfo.tags.any? %>
         <ul>
             <% userinfo.tags.each do |tag| %>
             <li><a href="javascript:void(0)"><%= tag.name %></a></li>
             <% end %>
         </ul>
+        <% else %>
+        <p>タグがございません。</p>
+        <% end %>
     </div>
 </div>
