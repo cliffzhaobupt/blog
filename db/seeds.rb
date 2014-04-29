@@ -30,9 +30,9 @@ end
         user_id: 1)
 end
 
-10.times do
+20.times do |num|
     BlogArticle.create(
-    title: '流れ星',
+    title: "流れ星_#{num}",
     article: %{流れ星　ねえ　キミは何を想ってみているの？
 見つけた星　今　ボクの中で確かに輝く光
 夢に描いてた場所は　
