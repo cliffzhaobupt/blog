@@ -1,20 +1,24 @@
-== Introduction
+## Introduction
 
 Blog Excercise
 
-== Week 1
+## Week 1
 
-* Sign up
+### Sign up
 Click sign up button, enter personal information and sign up. After signing up, return to the current page with logged-in state.
 
-* Log in
+### Log in
 Click log in button, enter username and password, then log in. After logging in, return to the current page with logged-in state.
 
-* Log out
+### Log out
 In logged-in state, click log out button, return to the current page with logged-out state
 
-* Blog list page front end development
+### Blog list page front end development
 
 After clone, please execute <tt>rake db:migrate</tt> and <tt>rake db:seed</tt>
 
 Please check these function by browse <tt>http://0.0.0.0:3000/blog/listbyuser</tt>
+
+## Week 2
+
+### User List Page
