@@ -11,7 +11,7 @@
                 <% @user["column_#{column_index}"].each do |user| %>
                 <li class="list-item">
                     <a href=<%= "/blog/listbyuser?id=#{user.id}" %> target="_blank" class="user-link">
-                        <div class="img-wrapper"><img src="/assets/cliff.JPG"></div>
+                        <div class="img-wrapper"><img src="/assets/cliff.jpg"></div>
                         <p class="user-name"><%= user.username %></p>
                         <p class="self-intro"><%= user.self_intro %></p>
                     </a>

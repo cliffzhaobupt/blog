@@ -16,7 +16,7 @@ class BlogController < ApplicationController
     end
   end
 
-  #get ariticle detail by ariticle id
+  #get article detail by ariticle id
   def articledetail
     @article = BlogArticle.find(params[:id])
     @user = @article.user

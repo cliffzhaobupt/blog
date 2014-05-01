@@ -1,0 +1,48 @@
+<div class="blog-list-page-wrapper">
+
+    <%= render(partial: 'pageheader', object: @user) %>
+    
+    <div class="main-content-wrapper clear-float">
+        <div class="left-part">
+
+        <%= render(partial: 'userinfo', object: @user) %>
+            
+        </div>
+        <div class="right-part">
+            <h1>ブログ</h1>
+            <div class="right-part-content">
+                <div class="blog-wrapper">
+                    <div class="blog-title-wrapper">
+                        <h2><%= @article.title %></h2>
+                        <h3>発表時間：<%= @article.created_at %></h3>
+                        <h3>タグ：<%= @article.tag.name %></h3>
+                    </div>
+                    <div class="blog-content">
+                        <%= @article.article %>
+                    </div>
+                    <div class="blog-bottom-wrapper">
+                        <ul>
+                            <li>閲覧数(<%= @article.read_count %>)</li>
+                            <li>コメント数(<%= @article.comments_count %>)</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="comment-area-wrapper" data-article-id=<%= @article.id %>>
+                    <ul class="comment-list">
+                    </ul>
+                    <div class="add-comment">
+                        <h4>君のコメントは...</h4>
+                        <div>
+                            <textarea></textarea>
+                        </div>
+                        <div class="button-wrapper">
+                            <button>コメントを追加</button>
+                        </div>
+                        
+                    </div>    
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>

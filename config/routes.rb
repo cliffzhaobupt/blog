@@ -4,6 +4,8 @@ Blog::Application.routes.draw do
   get "user/logout"
   get "blog/listbyuser"
   get "user/index"
+  get "blog/articledetail"
+  get "comment/getcomments"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

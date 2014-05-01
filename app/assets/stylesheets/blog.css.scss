@@ -95,9 +95,10 @@
 
                 li {
                     display: inline-block;
+                    font-size: 14px;
+                    color: #888;
 
                     a {
-                        font-size: 14px;
                         color: #888;
                     }
                     a:hover {
@@ -136,6 +137,74 @@
                     width: 450px;
                     font-size: 28px;
                     color: #333;
+                }
+            }
+
+            .comment-item {
+                font-size: 12px;
+                position: relative;
+                margin-bottom: 30px;
+
+                .user-small-logo {
+                    width: 48px;
+                    height: 48px;
+                    overflow: hidden;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                }
+
+                .comment-info {
+                    margin-left: 60px;
+
+                    .comment-title {
+                        font-weight: normal;
+                        background: #DDDDDD;
+                        text-indent: 5px;
+                        line-height: 20px;
+                    }
+
+                    .comment-content {
+                        padding: 10px 0;
+                    }
+                }                
+            }
+
+            .add-comment {
+                h4 {
+                    font-size: 14px;
+                    color: #888888;
+                    line-height: 24px;
+                }
+
+                textarea {
+                    width: 100%;
+                    padding: 0;
+                    margin: 0;
+                    height: 80px;
+                }
+
+                .button-wrapper {
+                    text-align: right;
+
+                    button {
+                        width: 150px;
+                        line-height: 22px;
+                        font-size: 14px;
+                        background: #5B89DA;
+                        border: 1px solid #ccc;
+                        border-radius: 5px;
+                        cursor: pointer;
+                    }
+
+                    button:hover {
+                        color: #f60;
+                        background: #ccc;
+                        transition: color 0.2s linear, background 0.2s linear;
+                        -webkit-transition: color 0.2s linear, background 0.2s linear;
+                        -moz-transition: color 0.2s linear, background 0.2s linear;
+                        -o-transition: color 0.2s linear, background 0.2s linear;
+                    }
                 }
             }
         }
