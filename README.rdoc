@@ -5,12 +5,12 @@ Blog Excercise
 == Week 1
 
 * Sign up
-<img src="https://github.com/cliffzhaobupt/blog/signup.png"/>
+<img src="https://github.com/cliffzhaobupt/blog/raw/master/sampleimg/signup.png"/>
 
 Click sign up button, enter personal information and sign up. After signing up, return to the current page with logged-in state.
 
 * Log in
-<img src="https://github.com/cliffzhaobupt/blog/login.png"/>
+<img src="https://github.com/cliffzhaobupt/blog/raw/master/sampleimg/login.png"/>
 
 Click log in button, enter username and password, then log in. After logging in, return to the current page with logged-in state.
 
