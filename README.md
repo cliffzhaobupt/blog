@@ -27,7 +27,8 @@ Please check these function by browse <tt>http://0.0.0.0:3000/blog/listbyuser</t
 ## Week 2
 
 ### User List Page
-<tt>http://0.0.0.0:3000/user/index</tt>
+To browse this page's sample: <tt>http://0.0.0.0:3000/user/index</tt>
+
 <img src="https://github.com/cliffzhaobupt/blog/raw/master/sampleimg/index.png"/>
 
 Finish client side and server side development, including pagination.
@@ -37,7 +38,8 @@ User could select one user and enter his blog list page.
 Todo: in the sign-up part, did not add upload user image function, will do this part later.
 
 ### Blog List Page
-<tt>http://0.0.0.0:3000/blog/listbyuser?id=1</tt>
+To browse this page's sample: <tt>http://0.0.0.0:3000/blog/listbyuser?id=1</tt>
+
 <img src="https://github.com/cliffzhaobupt/blog/raw/master/sampleimg/bloglist.png"/>
 
 Finish client side and server side development, including pagination.
@@ -46,7 +48,8 @@ User could select one article and enter the article detail page.
 Todo: considering change the pagination part into AJAX...
 
 ### Article Detail Page
-<tt>http://0.0.0.0:3000/blog/articledetail?id=1</tt>
+To browse this page's sample: <tt>http://0.0.0.0:3000/blog/articledetail?id=1</tt>
+
 <img src="https://github.com/cliffzhaobupt/blog/raw/master/sampleimg/articledetail.png"/>
 
 Finish part of the client side and part of the server side development.
