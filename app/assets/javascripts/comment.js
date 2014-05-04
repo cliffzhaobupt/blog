@@ -1,3 +1,4 @@
+// Generate the code like <li><a ...>1</a></li>
 function generateLiLinkCode (linkto, text) {
   return [
     '<li><a href="javascript:void(0)" data-page="',
@@ -8,6 +9,7 @@ function generateLiLinkCode (linkto, text) {
   ].join('');
 }
 
+// Generate the code of <li> in the comment pagination
 function generatePageLiSetCode (currentPage, pageCount) {
   var liSetArr = [];
   if (currentPage == 1) {
@@ -40,7 +42,12 @@ function generatePageLiSetCode (currentPage, pageCount) {
 
 $('document').ready(function () {
   var articleId = $('.comment-area-wrapper').attr('data-article-id'),
-    commentArea = $('.blog-bottom-wrapper').get(0);
+    commentArea = $('.blog-bottom-wrapper').get(0),
+    loadingIcon = $('.loading-wrapper');
+
+  var commentList = $('.comment-list'),
+    commentPagination = $('.comment-pagination');
+
   if (! articleId) return;
   var commentTempl = [
       '{{#comments}}',
@@ -55,32 +62,81 @@ $('document').ready(function () {
       '{{/comments}}'
     ].join('');
 
-  $.get('/comment/getcomments',{
-    'id': articleId
-  }, function (data) {
-    var comments = data.comments;
-    if (comments.length > 0) {
-      var commentList = $('.comment-list'),
-        commentPagination = $('.comment-pagination');
-      commentList.append(Mustache.render(commentTempl, data));
-      var pageCount = data.page_count;
-      commentPagination
+  // When page being loaded, get comment list
+  // and initialize the pagination
+  $.ajax({
+    type: 'GET',
+    url: '/comment/getcomments',
+    data: {
+      'id': articleId
+    },
+    success: function (data) {
+      loadingIcon.hide();
+      var comments = data.comments;
+      if (comments.length > 0) {
+        // Display the comment list
+        commentList.append(Mustache.render(commentTempl, data));
+        var pageCount = data.page_count;
+        // Initialize the pagination
+        commentPagination
         .append(generatePageLiSetCode(1, pageCount))
-        .delegate('li a', 'click', function (e) {
+          // Pagination click event handler
+        .delegate('li a', 'click', function (e) {  
           var nextPage = $(e.currentTarget).attr('data-page');
-          $.get('/comment/getcomments', {
-            'id': articleId,
-            'page': nextPage
-          }, function (data) {
-            commentList
-              .empty()
-              .append(Mustache.render(commentTempl, data));
-            commentPagination
-              .empty()
-              .append(generatePageLiSetCode(nextPage, data.page_count));
-            commentArea.scrollIntoView();
+          $.ajax({
+            type: 'GET',
+            url: '/comment/getcomments',
+            data: {
+              'id': articleId,
+              'page': nextPage
+            },
+            beforeSend: function () {
+              commentList.empty()
+              loadingIcon.show();
+            },
+            success: function (data) {
+              loadingIcon.hide();
+              commentList.append(Mustache.render(commentTempl, data));
+              commentPagination
+                .empty()
+                .append(generatePageLiSetCode(nextPage, data.page_count));
+              commentArea.scrollIntoView();
+            }
           });
         });
+      }
+    }
+  });
+
+  // Add comment event handler
+  $('.button-wrapper button').bind('click', function (e) {
+    var target = $(e.currentTarget),
+      textArea = $('.comment-textarea');
+    if (! target.attr('data-login-id')) {
+      $('.J_LogInBtn').trigger('click');
+    } else {
+      $.ajax({
+        type: 'POST',
+        url: '/comment/new',
+        data: {
+          'content': textArea.val(),
+          'login_id': target.attr('data-login-id'),
+          'article_id': articleId
+        },
+        beforeSend: function () {
+          commentList.empty()
+          loadingIcon.show();
+        },
+        success: function (data) {
+          loadingIcon.hide();
+          textArea.val('');
+          commentList.append(Mustache.render(commentTempl, data));
+          commentPagination
+            .empty()
+            .append(generatePageLiSetCode(data.pageCount, data.page_count));
+          commentArea.scrollIntoView();
+        }
+      });
     }
   });
 });

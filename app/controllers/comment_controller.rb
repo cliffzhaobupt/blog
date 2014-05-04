@@ -3,22 +3,17 @@ class CommentController < ApplicationController
 
   def getcomments
     current_page = Integer(params[:page] || 1)
-    article = BlogArticle.find(params[:id])
-    page_count = (article.comments.size / Float(CommentPerPage)).ceil
-    comments = article.comments.offset((current_page - 1) * CommentPerPage).limit(CommentPerPage)
-    comment_arr = []
-    comments.each do |comment|
-      comment_arr << {
-        arid: comment.blog_article_id,
-        username: comment.user.username,
-        time: comment.created_at,
-        content: comment.comment
-        } 
-    end
-    render json: {comments: comment_arr, page_count: page_count}
+    render json: Comment.generate_comment_hash(params[:id], current_page, CommentPerPage)
   end
   
-  def addcomment
-    
+  def new
+    puts 'comes here'
+    Comment.create({
+      comment: params[:content],
+      user_id: params[:login_id],
+      blog_article_id: params[:article_id]
+      })
+    render json: Comment.generate_comment_hash(params[:article_id], CommentPerPage)
   end
+
 end

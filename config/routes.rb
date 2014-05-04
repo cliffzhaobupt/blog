@@ -6,6 +6,7 @@ Blog::Application.routes.draw do
   get "user/index"
   get "blog/articledetail"
   get "comment/getcomments"
+  post "comment/new"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

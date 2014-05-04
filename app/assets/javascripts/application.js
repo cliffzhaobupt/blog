@@ -12,7 +12,7 @@
 //
 //= require jquery
 //= require_tree .
-
+//= require jquery_ujs
 
 function addOrRemoveErrorMsg (isAdd, target, errorClass, errorMsg, callback) {
     var inputField = target.parent();
