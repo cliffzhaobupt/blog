@@ -18,7 +18,7 @@ function generatePageLiSetCode (currentPage, pageCount) {
       '<li class="current-page">1</li>'
       ].join(''));
   } else {
-    liSetArr.push(generateLiLinkCode(currentPage - 1, '前へ'));
+    liSetArr.push(generateLiLinkCode(parseInt(currentPage) - 1, '前へ'));
     liSetArr.push(generateLiLinkCode(1, 1));
   }
   for (var i = 2 ; i <= pageCount ; i ++) {
@@ -133,7 +133,7 @@ $('document').ready(function () {
           commentList.append(Mustache.render(commentTempl, data));
           commentPagination
             .empty()
-            .append(generatePageLiSetCode(data.pageCount, data.page_count));
+            .append(generatePageLiSetCode(data.page_count, data.page_count));
           commentArea.scrollIntoView();
         }
       });
