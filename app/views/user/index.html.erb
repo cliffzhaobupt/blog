@@ -20,7 +20,7 @@
             </ul>
             <% end %>    
         </div>
-        <ul class="user-pagination">
+        <ul class="user-pagination pagination">
             <li><%= link_to_if @current_page > 1, '前へ', user_index_path(page: @current_page - 1) %></li>
             <!-- <li>...</li> -->
             <% (1..@page_count).each do |num| %>

@@ -15,7 +15,7 @@
 
                 <%= render(partial: 'article', collection: @articles) %>
 
-                <ul class="blog-pagination">
+                <ul class="blog-pagination pagination">
                     <li><%= link_to_if @current_page > 1, '前へ', blog_listbyuser_path(id: @user.id, page: @current_page - 1) %></li>
                     <!-- <li>...</li> -->
                     <% (1..@page_count).each do |num| %>

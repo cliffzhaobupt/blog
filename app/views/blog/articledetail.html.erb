@@ -28,15 +28,22 @@
                     </div>
                 </div>
                 <div class="comment-area-wrapper" data-article-id=<%= @article.id %>>
+                    <div class="loading-wrapper"><img src="/assets/loading.gif"></div>
                     <ul class="comment-list">
+                    </ul>
+                    <ul class="comment-pagination pagination">
                     </ul>
                     <div class="add-comment">
                         <h4>君のコメントは...</h4>
                         <div>
-                            <textarea></textarea>
+                            <textarea class="comment-textarea"></textarea>
                         </div>
                         <div class="button-wrapper">
+                            <% if @login %>
+                            <button data-login-id=<%= @id_login %>>コメントを追加</button>
+                            <% else %>
                             <button>コメントを追加</button>
+                            <% end %>
                         </div>
                         
                     </div>    
