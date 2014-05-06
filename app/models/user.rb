@@ -7,9 +7,9 @@ class User < ActiveRecord::Base
     validates :username, uniqueness: true
     validates :username, :password, :email, :gender, presence: true
 
-    def upload_photo= picture_field
+    def upload_photo=(picture_field)
         image = MiniMagick::Image.read(picture_field.read)
-        image.resize '200x200'
+        image.resize '200'
         image.format 'png'
         self.photo = image.to_blob
     end

@@ -53,10 +53,10 @@
             <span>登録</span>
             <a class="close-pop-up J_ClosePopup" href="javascript:void(0)">X</a>
         </div>
-        <form class="J_SignUpForm" action="" method="post">
+        <form class="J_SignUpForm" action="/user/new" method="post" enctype="multipart/form-data">
             <div class="input-field">
                 <label for="su-username">ブログID</label>
-                <input type="text" id="su-username" name="username"/>
+                <input type="text" id="su-username" value="<%= @username %>" name="username"/>
             </div>
             <div class="input-field">
                 <label for="su-password">パスワードを作成</label>
@@ -68,11 +68,11 @@
             </div>
             <div class="input-field">
                 <label for="email">E-mail</label>
-                <input type="text" id="email" name="email"/>
+                <input type="text" id="email" name="email" value="<%=@email %>"/>
             </div>
             <div class="input-field">
                 <label for="self-intro">自己紹介</label>
-                <textarea id="self-intro" name="self-intro"></textarea>
+                <textarea id="self-intro" name="self_intro"><%= @self_intro %></textarea>
             </div>
             <div class="input-field">
                 <label for="gender">性別</label>
@@ -83,11 +83,16 @@
                 </select>
             </div>
             <div class="input-field">
+                <label for="photo">写真アップロード</label>
+                <input type="file" id="photo" name="upload_photo"/>
+            </div>
+            <div class="input-field">
                 <button type="submit">無料登録</button>
             </div>
         </form>
     </div>
 
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <script type="text/javascript" src="/assets/jquery.form.js"></script>
 </body>
 </html>

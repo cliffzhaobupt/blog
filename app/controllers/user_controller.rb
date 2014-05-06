@@ -1,4 +1,5 @@
 class UserController < ApplicationController
+    skip_before_filter :verify_authenticity_token
     #create user(post)
     def new
         user = User.new(
@@ -6,7 +7,8 @@ class UserController < ApplicationController
             password: params[:password],
             email: params[:email],
             gender: params[:gender],
-            self_intro: params[:self_intro])
+            self_intro: params[:self_intro],
+            upload_photo: params[:upload_photo])
         if user.save
             session[:username] = params[:username]
             session[:userid] = user.id
@@ -52,5 +54,10 @@ class UserController < ApplicationController
         User.limit(12).offset((@current_page - 1) * 12).each.with_index do |user, index|
             @user["column_#{index%4 + 1}"] << user
         end
+    end
+
+    def photo
+        user = User.find(params[:id])
+        send_data(user.photo, type: 'image/png', disposition: 'inline')
     end
 end

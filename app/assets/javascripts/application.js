@@ -106,6 +106,9 @@ $(document).ready(function(){
 
     //Sign up form check
     $('.J_SignUpForm').bind('submit', function (e) {
+        //Prevent default at first
+        e.preventDefault();
+
         var form = $(e.currentTarget),
             willSubmit = true;
         //Check fill out all the text fields including textarea
@@ -142,27 +145,42 @@ $(document).ready(function(){
 
         //If all the fields r valid, submit the form
         if (willSubmit) {
-            $.post('/user/new.html', {
-                username: form.find('#su-username').val(),
-                password: form.find('#su-password').val(),
-                email: form.find('#email').val(),
-                gender: form.find('#gender').val(),
-                self_intro: form.find('#self-intro').val()
-            }, function (data) {
-                //Successfully sign-up, remove server side error messages
-                //then, refresh current page - use reload(true)
-                if (data.success) {
-                    form.find('[type=text], [type=password], select').each(function () {
-                        removeServerSideErrorMsg($(this));
-                    });
-                    location.reload(true);
-                //Unseccessfully log-in, display server side error message
-                } else {
-                    addServerSideErrorMsg(form.find('#su-username'), 'already-have', '同じのIDが存在しています。');
+            $(this).ajaxSubmit({
+                success: function(data) {
+                    //Successfully sign-up, remove server side error messages
+                    //then, refresh current page - use reload(true)
+                    if (data.success) {
+                        form.find('[type=text], [type=password], select').each(function () {
+                            removeServerSideErrorMsg($(this));
+                        });
+                        location.reload(true);
+                    //Unseccessfully log-in, display server side error message
+                    } else {
+                        addServerSideErrorMsg(form.find('#su-username'), 'already-have', '同じのIDが存在しています。');
+                    }
                 }
             });
+            // $.post('/user/new.html', {
+            //     username: form.find('#su-username').val(),
+            //     password: form.find('#su-password').val(),
+            //     email: form.find('#email').val(),
+            //     gender: form.find('#gender').val(),
+            //     self_intro: form.find('#self-intro').val(),
+            //     upload_photo: form.find('#photo').val()
+            // }, function (data) {
+            //     //Successfully sign-up, remove server side error messages
+            //     //then, refresh current page - use reload(true)
+            //     if (data.success) {
+            //         form.find('[type=text], [type=password], select').each(function () {
+            //             removeServerSideErrorMsg($(this));
+            //         });
+            //         location.reload(true);
+            //     //Unseccessfully log-in, display server side error message
+            //     } else {
+            //         addServerSideErrorMsg(form.find('#su-username'), 'already-have', '同じのIDが存在しています。');
+            //     }
+            // });
         }
-        e.preventDefault();
     });
 
     //Login form check

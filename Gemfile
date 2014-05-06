@@ -1,8 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'subexec'
-
-gem 'mini_magick'
+gem 'mini_magick', '3.7.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.2'
