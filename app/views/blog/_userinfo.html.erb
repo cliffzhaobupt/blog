@@ -1,10 +1,10 @@
 <div class="left-box">
     <h1>プロファイル</h1>
     <div class="left-box-content">
-        <div><img src="/assets/cliff.jpg"/></div>
-        <p class="intro-username"><%= userinfo.username %></p>
+        <div><a href=<%= blog_listbyuser_path(id: userinfo.id) %>><img src="/assets/cliff.jpg"/></a></div>
+        <p class="intro-username"><%= link_to userinfo.username, blog_listbyuser_path(id: userinfo.id) %></p>
         <p><%= judge_gender userinfo.gender %></p>
-        <p>登録日時：<%= userinfo.created_at.to_date %></p>
+        <p>登録日時：<%= userinfo.sign_up_date %></p>
         <p>ブログ数：<%= userinfo.blog_articles.size %></p>
         <p>人気：<%= userinfo.popularity %></p>
     </div>
@@ -13,7 +13,7 @@
 <div class="left-box">
     <h1>自己紹介</h1>
     <div class="left-box-content">
-        <p><%= userinfo.self_intro %></p>
+        <%= simple_format userinfo.self_intro %>
     </div>
 </div>
 

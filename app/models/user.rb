@@ -4,4 +4,8 @@ class User < ActiveRecord::Base
 
     validates :username, uniqueness: true
     validates :username, :password, :email, :gender, presence: true
+
+    def sign_up_date
+        self.created_at.localtime.to_date
+    end
 end

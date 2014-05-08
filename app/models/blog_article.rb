@@ -5,4 +5,8 @@ class BlogArticle < ActiveRecord::Base
     has_many :comments
 
     validates :title, :article, :tag_id, presence: {message: '未完成な部分がございますけど。'}
+
+    def created_at_normalized
+        self.created_at.localtime.to_formatted_s(:db)
+    end
 end
