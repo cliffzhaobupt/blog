@@ -61,4 +61,9 @@ class UserController < ApplicationController
         user = User.find(params[:id])
         send_data(user.photo, type: 'image/png', disposition: 'inline')
     end
+
+    def small_photo
+        user = User.find(params[:id])
+        send_data(user.small_photo, type: 'image/png', disposition: 'inline')
+    end
 end

@@ -12,6 +12,8 @@ class User < ActiveRecord::Base
         image.resize '200'
         image.format 'png'
         self.photo = image.to_blob
+        image.resize '48'
+        self.small_photo = image.to_blob
     end
 
     def sign_up_date

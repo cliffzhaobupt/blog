@@ -12,6 +12,7 @@ Blog::Application.routes.draw do
   post "blog/save"
   get "tag/get"
   post "tag/add"
+  get "user/small_photo"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

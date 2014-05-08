@@ -53,7 +53,7 @@ $('document').ready(function () {
       '{{#comments}}',
       '<li class="comment-item">',
       '<a class="user-small-logo" href="/blog/listbyuser?id={{arid}}">',
-      '<img src="/assets/cliff_small.jpg"></a>',
+      '<img src="/user/small_photo?id={{userid}}"></a>',
       '<div class="comment-info">',
       '<h4 class="comment-title">{{time}} ',
       '<a href="/blog/listbyuser?id={{arid}}">{{username}}</a></h4>',

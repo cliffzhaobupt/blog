@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140505063707) do
+ActiveRecord::Schema.define(version: 20140508123435) do
 
   create_table "blog_articles", force: true do |t|
     t.string   "title"
@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 20140505063707) do
     t.integer  "blog_articles_count", default: 0
     t.integer  "tags_count",          default: 0
     t.binary   "photo"
+    t.binary   "small_photo"
   end
 
 end
