@@ -87,7 +87,13 @@ In the GIF, at first, browse <tt>http://0.0.0:3000</tt>, then click "登録" but
 
 <img src="https://github.com/cliffzhaobupt/blog/raw/master/sampleimg/uploadphoto.gif"/>
 
-To check this function, you may need to pull the branch of <tt>photoupload</tt>, and you'd better execute <tt>rake db:migrate VERSION=0</tt>, <tt>rake db:migrate</tt>, <tt>rake db:seed</tt> after pulling this branch.
+To check this function, you may need to pull the branch of <tt>photoupload</tt>, and you'd better execute these  after pulling this branch.
+
+```
+rake db:migrate VERSION=0
+rake db:migrate
+rake db:seed
+```
 
 Also, u need to install ImageMagick in your system. http://www.imagemagick.org/script/binary-releases.php
 
