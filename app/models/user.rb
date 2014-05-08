@@ -13,4 +13,8 @@ class User < ActiveRecord::Base
         image.format 'png'
         self.photo = image.to_blob
     end
+
+    def sign_up_date
+        self.created_at.localtime.to_date
+    end
 end

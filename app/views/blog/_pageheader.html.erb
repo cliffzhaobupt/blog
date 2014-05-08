@@ -1,5 +1,5 @@
 <div class="blogger-config">
-    <h1><%= pageheader.username %> の ブログ</h1>
+    <h1><%= link_to "#{pageheader.username} の ブログ", blog_listbyuser_path(id: pageheader.id) %></h1>
     <h2>Email: <%= pageheader.email %></h2>
 </div>
 <ul class="blogger-links">

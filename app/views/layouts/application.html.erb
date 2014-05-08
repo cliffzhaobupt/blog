@@ -3,21 +3,25 @@
 <head>
   <title><%= @title || 'Blog' %></title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <link rel="stylesheet" type="text/css" href="/assets/jquery.cleditor.css">
   <%= csrf_meta_tags %>
 </head>
 <body>
     <div class="top-header-background">
         <div class="header-content-area clear-float">
-            <div class="site-title">ブログ課題</div>
+            <div class="site-title">
+                <%= link_to 'ブログ課題', user_index_path %>
+            </div>
             <div class="user-admin">
                 <% unless @login %>
                     <a class="J_LogInBtn" href="javascript:void(0)">ログイン</a>
                     <a class="J_SignUpBtn" href="javascript:void(0)">登録</a>
                 <% else %>
                     <span>ようこそ、<%= @username_login %>さん</span>
-                    <a href="javascript:void(0)">新規ブログ</a>
+                    <%= link_to('新規ブログ', blog_new_path) %>
                     <%= link_to('ブログ一覧', blog_listbyuser_path(id: @id_login)) %>
-                    <a class="J_LogOutBtn" href="javascript:void(0)">ログアウト</a>
+                    <%= link_to('ログアウト', user_logout_path) %>
+                    <!-- <a class="J_LogOutBtn" href="javascript:void(0)">ログアウト</a> -->
                 <% end %>
             </div>
         </div>
@@ -93,6 +97,9 @@
     </div>
 
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+
   <script type="text/javascript" src="/assets/jquery.form.js"></script>
+  <script type="text/javascript" src="/assets/jquery.cleditor.min.js"></script>
+
 </body>
 </html>

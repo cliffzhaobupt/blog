@@ -64,11 +64,12 @@ $(document).ready(function(){
     }).delegate('.J_SignUpBtn', 'click', function () {
         $('.J_SignupPopup').show().find('#su-username').focus();
     //Log-out Button
-    }).delegate('.J_LogOutBtn', 'click', function () {
-        $.get('/user/logout.html', function () {
-            location.reload(true);
-        });
     });
+    // .delegate('.J_LogOutBtn', 'click', function () {
+    //     $.get('/user/logout.html', function () {
+    //         location.reload(true);
+    //     });
+    // });
 
     //Blur Tips for text and password inputs
     // $('.pop-up input[type=text], .pop-up input[type=password]').bind('blur', function (e) {

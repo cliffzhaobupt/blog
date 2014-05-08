@@ -1,11 +1,11 @@
 <div class="blog-wrapper">
     <div class="blog-title-wrapper">
         <h2><%= link_to article.title, blog_articledetail_path(id: article.id) %></h2>
-        <h3>発表時間：<%= article.created_at %></h3>
+        <h3>発表時間：<%= article.created_at_normalized %></h3>
         <h3>タグ：<%= article.tag.name %></h3>
     </div>
     <div class="blog-content">
-        <%= truncate article.article, length: 200 %>
+        <%= truncate article.article.gsub(/<[^>]*>/, ' '), length: 200 %>
     </div>
     <div class="blog-bottom-wrapper">
         <ul>
