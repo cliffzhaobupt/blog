@@ -9,7 +9,9 @@
 <body>
     <div class="top-header-background">
         <div class="header-content-area clear-float">
-            <div class="site-title">ブログ課題</div>
+            <div class="site-title">
+                <%= link_to 'ブログ課題', user_index_path %>
+            </div>
             <div class="user-admin">
                 <% unless @login %>
                     <a class="J_LogInBtn" href="javascript:void(0)">ログイン</a>

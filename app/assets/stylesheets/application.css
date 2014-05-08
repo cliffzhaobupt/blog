@@ -102,12 +102,16 @@ a:hover {
     margin-top: 8px;
 }
 
-.user-admin a {
+.header-content-area a {
     padding: 0 10px;
     color: #fff;
 }
 
-.user-admin a:hover {
+.site-title a {
+    padding: 0;
+}
+
+.header-content-area a:hover {
     color: #f60;
     transition: color 0.2s linear;
     -webkit-transition: color 0.2s linear;

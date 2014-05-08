@@ -5,6 +5,8 @@ class BlogController < ApplicationController
   #get list by user id and page number
   def listbyuser
     @user = User.find(params[:id])
+    @user.popularity += 1
+    @user.save
 
     @has_articles = @user.blog_articles.size > 0
     if @has_articles
@@ -18,6 +20,8 @@ class BlogController < ApplicationController
   def articledetail
     @article = BlogArticle.find(params[:id])
     @user = @article.user
+    @article.read_count += 1
+    @article.save
   end
 
   def new
@@ -38,7 +42,7 @@ class BlogController < ApplicationController
     if article.save
       redirect_to action: 'articledetail', id: article.id
     else
-      render action: 'new', notice: article.errors.messages
+      redirect_to action: 'new'
     end
     
   end
