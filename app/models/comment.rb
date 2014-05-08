@@ -11,10 +11,11 @@ class Comment < ActiveRecord::Base
       comment_arr << {
         arid: comment.blog_article_id,
         username: comment.user.username,
-        time: comment.created_at,
+        time: comment.created_at.localtime.to_formatted_s(:db),
         content: comment.comment
         } 
     end
     {comments: comment_arr, page_count: page_count}
   end
+
 end
