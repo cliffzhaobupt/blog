@@ -35,8 +35,9 @@ class UserController < ApplicationController
 
     #user logout
     def logout
-        session[:username] = nil
-        render(json: {success: true})
+        session.delete :username
+        session.delete :userid
+        redirect_to :back
     end
 
     #user list page
