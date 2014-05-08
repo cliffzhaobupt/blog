@@ -58,5 +58,25 @@ $(document).ready(function () {
     }
   });
 
-  articleTextarea.cleditor();
+  articleTextarea.cleditor({
+    'height': 500
+  });
+
+  $('.new-article-form').bind('submit', function (e) {
+    var couldSubmit = true;
+    $('.must-have').each(function (index, currentField) {
+      currentField = $(currentField);
+      var fieldVal = currentField.val();
+      if (fieldVal == '' || /^\s+$/.test(fieldVal)) {
+        var currentLabel = currentField.parents('.article-field').find('label');
+        if (! currentLabel.find('em').get(0)) {
+          currentLabel.append('<em>空いたらだめなんですが...</em>');          
+        }
+        couldSubmit = false;
+      }
+    });
+    if (! couldSubmit) {
+      e.preventDefault();
+    }
+  });
 });

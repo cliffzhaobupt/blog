@@ -11,20 +11,20 @@
         <div class="right-part">
             <h1>新規ブログ</h1>
             <div class="right-part-content">
-                <%= form_for :article, url: {action: "save"} do |form| %>
+                <%= form_for :article, html: {class: 'new-article-form'}, url: {action: "save"} do |form| %>
                     <div class="article-field">
                     <%= form.label :title, 'タイトル' %>
-                    <%= form.text_field :title %>
+                    <%= form.text_field :title, class: 'must-have' %>
                     </div>
                     <div class="article-field">
                     <%= form.label :tag_id, 'タグ'  %>
-                    <%= form.hidden_field :tag_id, class: 'J_TagId' %>
+                    <%= form.hidden_field :tag_id, class: 'J_TagId must-have' %>
                         <div class="loading-wrapper J_TagLoading"><img src="/assets/loading.gif"></div>
                         <div class="tag-field" data-user-id="<%= @user.id %>"></div>
                     </div>
                     <div class="article-field">
                     <%= form.label :article, '内容' %>
-                    <%= form.text_area :article %>
+                    <%= form.text_area :article, class: 'must-have' %>
                     </div>
 
                     <div class="article-field submit-field">

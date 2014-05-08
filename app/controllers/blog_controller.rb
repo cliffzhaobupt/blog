@@ -29,14 +29,16 @@ class BlogController < ApplicationController
 
     article = BlogArticle.new({
       article: params[:article][:article],
-      tag_id: Integer(params[:article][:tag_id]),
+      tag_id: 
+        params[:article][:tag_id].to_i == 0 ? 
+          nil : params[:article][:tag_id].to_i,
       title: params[:article][:title],
       user_id: @user.id
       })
     if article.save
       redirect_to action: 'articledetail', id: article.id
     else
-      render action: 'new', notice: article.error.messages
+      render action: 'new', notice: article.errors.messages
     end
     
   end

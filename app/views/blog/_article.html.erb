@@ -5,7 +5,7 @@
         <h3>タグ：<%= article.tag.name %></h3>
     </div>
     <div class="blog-content">
-        <%= truncate article.article, length: 200 %>
+        <%= truncate strip_tags(article.article), length: 200 %>
     </div>
     <div class="blog-bottom-wrapper">
         <ul>

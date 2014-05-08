@@ -4,5 +4,5 @@ class BlogArticle < ActiveRecord::Base
 
     has_many :comments
 
-    validates :title, :article, presence: {message: '未完成な部分がございますけど。'}
+    validates :title, :article, :tag_id, presence: {message: '未完成な部分がございますけど。'}
 end

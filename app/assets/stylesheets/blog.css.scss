@@ -96,6 +96,13 @@
                 label {
                     display: block;
                     font-size: 14px;
+
+                    em {
+                        color: red;
+                        font-size: 10px;
+                        margin-left: 1em;
+                        font-style: normal;
+                    }
                 }
 
                 .add-tag-field {
