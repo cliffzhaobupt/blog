@@ -78,7 +78,11 @@ In the GIF, at first, browse any page, then click "ログイン" button, log-in,
 
 Use AJAX to load tags of the user, and add new tags.
 
+<<<<<<< HEAD
 The editor part use <tt>Cleditor</tt> javascript plugin: http://premiumsoftware.net/CLEditor
+=======
+The editor part use [Cleditor](http://premiumsoftware.net/CLEditor) javascript plugin.
+>>>>>>> master
 
 ### Upload User Image
 GIF may take a little while to load.... Sorry.
@@ -87,8 +91,20 @@ In the GIF, at first, browse <tt>http://0.0.0:3000</tt>, then click "登録" but
 
 <img src="https://github.com/cliffzhaobupt/blog/raw/master/sampleimg/uploadphoto.gif"/>
 
+<<<<<<< HEAD
 To check this function, you may need to pull the branch of <tt>photoupload</tt>, and you'd better execute <tt>rake db:migrate VERSION=0</tt>, <tt>rake db:migrate</tt>, <tt>rake db:seed</tt> after pulling this branch.
 
 Also, u need to install ImageMagick in your system. http://www.imagemagick.org/script/binary-releases.php
+=======
+To check this function, you may need to pull the branch of <tt>photoupload</tt>, and you'd better execute these  after pulling this branch.
+
+```
+rake db:migrate VERSION=0
+rake db:migrate
+rake db:seed
+```
+
+Also, u need to install [ImageMagick](http://www.imagemagick.org/script/binary-releases.php) in your system.
+>>>>>>> master
 
 In the upload part, user's photo is resized into 2 sizes. One is used as the photo in index, blog list, and article detail page. While, the other one is used as the smaller photo in the comment posted by this user.
