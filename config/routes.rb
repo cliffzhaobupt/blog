@@ -1,4 +1,6 @@
 Blog::Application.routes.draw do
+  root "user#index"
+
   post "user/new"
   get "user/login"
   get "user/logout"
