@@ -35,7 +35,7 @@ Finish client side and server side development, including pagination.
 
 User could select one user and enter his blog list page.
 
-Todo: in the sign-up part, did not add upload user image function, will do this part later.
+TODO: in the sign-up part, did not add upload user image function, will do this part later.
 
 ### Blog List Page
 To browse this page's sample: <tt>http://0.0.0.0:3000/blog/listbyuser?id=1</tt>
@@ -45,7 +45,7 @@ To browse this page's sample: <tt>http://0.0.0.0:3000/blog/listbyuser?id=1</tt>
 Finish client side and server side development, including pagination.
 User could select one article and enter the article detail page.
 
-Todo: considering change the pagination part into AJAX...
+TODO: considering change the pagination part into AJAX...
 
 ### Article Detail Page
 To browse this page's sample: <tt>http://0.0.0.0:3000/blog/articledetail?id=1</tt>
@@ -54,4 +54,8 @@ To browse this page's sample: <tt>http://0.0.0.0:3000/blog/articledetail?id=1</t
 
 Finish part of the client side and part of the server side development.
 
-Todo: ajax pagination of the comments / add comment
+TODO: ajax pagination of the comments / add comment
+
+## Week 3
+
+### Comment Pagination / Add Comment
