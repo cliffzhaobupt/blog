@@ -52,11 +52,11 @@ $('document').ready(function () {
   var commentTempl = [
       '{{#comments}}',
       '<li class="comment-item">',
-      '<a class="user-small-logo" href="/blogs/listbyuser?id={{arid}}">',
+      '<a class="user-small-logo" href="/blogs/listbyuser?id={{userid}}">',
       '<img src="/users/small_photo?id={{userid}}"></a>',
       '<div class="comment-info">',
       '<h4 class="comment-title">{{time}} ',
-      '<a href="/blogs/listbyuser?id={{arid}}">{{username}}</a></h4>',
+      '<a href="/blogs/listbyuser?id={{userid}}">{{username}}</a></h4>',
       '<p class="comment-content">{{content}}</p>',
       '</div></li>',
       '{{/comments}}'

@@ -9,7 +9,6 @@ class Comment < ActiveRecord::Base
     comment_arr = []
     comments.each do |comment|
       comment_arr << {
-        arid: comment.blog_article_id,
         userid: comment.user.id,
         username: comment.user.username,
         time: comment.created_at.localtime.to_formatted_s(:db),
