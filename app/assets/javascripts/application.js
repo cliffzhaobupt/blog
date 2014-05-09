@@ -197,7 +197,7 @@ $(document).ready(function(){
         if (willSubmit) {
             var usernameInput = form.find('#username'),
                 passwordInput = form.find('#password');
-            $.get('/user/login.html', {
+            $.get('/users/login.html', {
                 username: usernameInput.val(),
                 password: passwordInput.val()
             }, function (data) {

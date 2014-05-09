@@ -50,7 +50,7 @@ class BlogController < ApplicationController
   protected
     def check_login
       unless session.has_key?(:userid)
-        redirect_to user_index_path
+        redirect_to users_index_path
       end
     end
 end

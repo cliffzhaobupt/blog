@@ -52,11 +52,11 @@ $('document').ready(function () {
   var commentTempl = [
       '{{#comments}}',
       '<li class="comment-item">',
-      '<a class="user-small-logo" href="/blog/listbyuser?id={{arid}}">',
-      '<img src="/user/small_photo?id={{userid}}"></a>',
+      '<a class="user-small-logo" href="/blogs/listbyuser?id={{arid}}">',
+      '<img src="/users/small_photo?id={{userid}}"></a>',
       '<div class="comment-info">',
       '<h4 class="comment-title">{{time}} ',
-      '<a href="/blog/listbyuser?id={{arid}}">{{username}}</a></h4>',
+      '<a href="/blogs/listbyuser?id={{arid}}">{{username}}</a></h4>',
       '<p class="comment-content">{{content}}</p>',
       '</div></li>',
       '{{/comments}}'
@@ -66,7 +66,7 @@ $('document').ready(function () {
   // and initialize the pagination
   $.ajax({
     type: 'GET',
-    url: '/comment/getcomments',
+    url: '/comments/getcomments',
     data: {
       'id': articleId
     },
@@ -85,7 +85,7 @@ $('document').ready(function () {
           var nextPage = $(e.currentTarget).attr('data-page');
           $.ajax({
             type: 'GET',
-            url: '/comment/getcomments',
+            url: '/comments/getcomments',
             data: {
               'id': articleId,
               'page': nextPage
@@ -117,7 +117,7 @@ $('document').ready(function () {
     } else {
       $.ajax({
         type: 'POST',
-        url: '/comment/new',
+        url: '/comments/new',
         data: {
           'content': textArea.val(),
           'login_id': target.attr('data-login-id'),

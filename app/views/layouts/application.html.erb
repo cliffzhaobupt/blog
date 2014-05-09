@@ -10,7 +10,7 @@
     <div class="top-header-background">
         <div class="header-content-area clear-float">
             <div class="site-title">
-                <%= link_to 'ブログ課題', user_index_path %>
+                <%= link_to 'ブログ課題', users_index_path %>
             </div>
             <div class="user-admin">
                 <% unless @login %>
@@ -18,9 +18,9 @@
                     <a class="J_SignUpBtn" href="javascript:void(0)">登録</a>
                 <% else %>
                     <span>ようこそ、<%= @username_login %>さん</span>
-                    <%= link_to('新規ブログ', blog_new_path) %>
-                    <%= link_to('ブログ一覧', blog_listbyuser_path(id: @id_login)) %>
-                    <%= link_to('ログアウト', user_logout_path) %>
+                    <%= link_to('新規ブログ', blogs_new_path) %>
+                    <%= link_to('ブログ一覧', blogs_listbyuser_path(id: @id_login)) %>
+                    <%= link_to('ログアウト', users_logout_path) %>
                     <!-- <a class="J_LogOutBtn" href="javascript:void(0)">ログアウト</a> -->
                 <% end %>
             </div>
@@ -57,7 +57,7 @@
             <span>登録</span>
             <a class="close-pop-up J_ClosePopup" href="javascript:void(0)">X</a>
         </div>
-        <form class="J_SignUpForm" action="/user/new" method="post" enctype="multipart/form-data">
+        <form class="J_SignUpForm" action="/users/new" method="post" enctype="multipart/form-data">
             <div class="input-field">
                 <label for="su-username">ブログID</label>
                 <input type="text" id="su-username" value="<%= @username %>" name="username"/>
