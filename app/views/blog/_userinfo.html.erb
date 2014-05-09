@@ -1,8 +1,8 @@
 <div class="left-box">
     <h1>プロファイル</h1>
     <div class="left-box-content">
-        <div><a href=<%= blog_listbyuser_path(id: userinfo.id) %>><img src="/assets/cliff.jpg"/></a></div>
-        <p class="intro-username"><%= link_to userinfo.username, blog_listbyuser_path(id: userinfo.id) %></p>
+        <div><a href=<%= blogs_listbyuser_path(id: userinfo.id) %>><img src="/assets/cliff.jpg"/></a></div>
+        <p class="intro-username"><%= link_to userinfo.username, blogs_listbyuser_path(id: userinfo.id) %></p>
         <p><%= judge_gender userinfo.gender %></p>
         <p>登録日時：<%= userinfo.sign_up_date %></p>
         <p>ブログ数：<%= userinfo.blog_articles.size %></p>

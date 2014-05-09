@@ -28,7 +28,7 @@ $(document).ready(function () {
    
     $.ajax({
       type: 'GET',
-      url: '/tag/get',
+      url: '/tags/get',
       data: {
         'id': userId
       },
@@ -41,7 +41,7 @@ $(document).ready(function () {
     if (target.hasClass('add-tag')) {
       $.ajax({
         type: 'POST',
-        url: '/tag/add',
+        url: '/tags/add',
         data: {
           'id': userId,
           'name': $('.add-tag-field').val()

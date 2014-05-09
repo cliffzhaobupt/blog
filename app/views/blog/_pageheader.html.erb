@@ -1,9 +1,9 @@
 <div class="blogger-config">
-    <h1><%= link_to "#{pageheader.username} の ブログ", blog_listbyuser_path(id: pageheader.id) %></h1>
+    <h1><%= link_to "#{pageheader.username} の ブログ", blogs_listbyuser_path(id: pageheader.id) %></h1>
     <h2>Email: <%= pageheader.email %></h2>
 </div>
 <ul class="blogger-links">
-    <li><%= link_to 'ブログ一覧', blog_listbyuser_path(id: pageheader.id) %></li>
+    <li><%= link_to 'ブログ一覧', blogs_listbyuser_path(id: pageheader.id) %></li>
     <li><a href="javascript:void(0)">画像アルバム</a></li>
     <li><a href="javascript:void(0)">メッセージボックス</a></li>
 </ul>

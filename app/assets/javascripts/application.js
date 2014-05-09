@@ -143,7 +143,7 @@ $(document).ready(function(){
 
         //If all the fields r valid, submit the form
         if (willSubmit) {
-            $.post('/user/new.html', {
+            $.post('/users/new.html', {
                 username: form.find('#su-username').val(),
                 password: form.find('#su-password').val(),
                 email: form.find('#email').val(),
@@ -179,7 +179,7 @@ $(document).ready(function(){
         if (willSubmit) {
             var usernameInput = form.find('#username'),
                 passwordInput = form.find('#password');
-            $.get('/user/login.html', {
+            $.get('/users/login.html', {
                 username: usernameInput.val(),
                 password: passwordInput.val()
             }, function (data) {

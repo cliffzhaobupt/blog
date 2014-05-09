@@ -1,6 +1,6 @@
 <div class="blog-wrapper">
     <div class="blog-title-wrapper">
-        <h2><%= link_to article.title, blog_articledetail_path(id: article.id) %></h2>
+        <h2><%= link_to article.title, blogs_articledetail_path(id: article.id) %></h2>
         <h3>発表時間：<%= article.created_at_normalized %></h3>
         <h3>タグ：<%= article.tag.name %></h3>
     </div>
@@ -9,8 +9,8 @@
     </div>
     <div class="blog-bottom-wrapper">
         <ul>
-            <li><%= link_to "閲覧数(#{article.read_count})", blog_articledetail_path(id: article.id) %></li>
-            <li><%= link_to "コメント数(#{article.comments_count})", blog_articledetail_path(id: article.id) %></li>
+            <li><%= link_to "閲覧数(#{article.read_count})", blogs_articledetail_path(id: article.id) %></li>
+            <li><%= link_to "コメント数(#{article.comments_count})", blogs_articledetail_path(id: article.id) %></li>
         </ul>
     </div>
 </div>

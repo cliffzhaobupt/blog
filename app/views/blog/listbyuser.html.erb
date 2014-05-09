@@ -16,17 +16,17 @@
                 <%= render(partial: 'article', collection: @articles) %>
 
                 <ul class="blog-pagination pagination">
-                    <li><%= link_to_if @current_page > 1, '前へ', blog_listbyuser_path(id: @user.id, page: @current_page - 1) %></li>
+                    <li><%= link_to_if @current_page > 1, '前へ', blogs_listbyuser_path(id: @user.id, page: @current_page - 1) %></li>
                     <!-- <li>...</li> -->
                     <% (1..@page_count).each do |num| %>
                         <% if num == @current_page %>
                         <li class="current-page"><%= num %></li>
                         <% else %>
-                        <li><%= link_to num, blog_listbyuser_path(id: @user.id, page: num) %></li>
+                        <li><%= link_to num, blogs_listbyuser_path(id: @user.id, page: num) %></li>
                         <% end %>
                     <% end %>
                     <!-- <li>...</li> -->
-                    <li><%= link_to_if @current_page < @page_count, '次へ', blog_listbyuser_path(id: @user.id, page: @current_page + 1) %></li>
+                    <li><%= link_to_if @current_page < @page_count, '次へ', blogs_listbyuser_path(id: @user.id, page: @current_page + 1) %></li>
                     <li>合計<%= @page_count %>ページ</li>
                 </ul>
                 <% else %>

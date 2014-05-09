@@ -10,7 +10,7 @@
             <ul class="list-column">
                 <% @user["column_#{column_index}"].each do |user| %>
                 <li class="list-item">
-                    <a href=<%= "/blog/listbyuser?id=#{user.id}" %> target="_blank" class="user-link">
+                    <a href=<%= "/blogs/listbyuser?id=#{user.id}" %> target="_blank" class="user-link">
                         <div class="img-wrapper"><img src="/assets/cliff.jpg"></div>
                         <p class="user-name"><%= user.username %></p>
                         <p class="self-intro"><%= user.self_intro %></p>
@@ -21,17 +21,17 @@
             <% end %>    
         </div>
         <ul class="user-pagination pagination">
-            <li><%= link_to_if @current_page > 1, '前へ', user_index_path(page: @current_page - 1) %></li>
+            <li><%= link_to_if @current_page > 1, '前へ', users_index_path(page: @current_page - 1) %></li>
             <!-- <li>...</li> -->
             <% (1..@page_count).each do |num| %>
                 <% if num == @current_page %>
                 <li class="current-page"><%= num %></li>
                 <% else %>
-                <li><%= link_to num, user_index_path(page: num) %></li>
+                <li><%= link_to num, users_index_path(page: num) %></li>
                 <% end %>
             <% end %>
             <!-- <li>...</li> -->
-            <li><%= link_to_if @current_page < @page_count, '次へ', user_index_path(page: @current_page + 1) %></li>
+            <li><%= link_to_if @current_page < @page_count, '次へ', users_index_path(page: @current_page + 1) %></li>
             <li>合計<%= @page_count %>ページ</li>
         </ul>
     </div>

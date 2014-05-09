@@ -1,18 +1,22 @@
 Blog::Application.routes.draw do
   root "user#index"
 
-  post "user/new"
-  get "user/login"
-  get "user/logout"
-  get "blog/listbyuser"
-  get "user/index"
-  get "blog/articledetail"
-  get "comment/getcomments"
-  post "comment/new"
-  get "blog/new"
-  post "blog/save"
-  get "tag/get"
-  post "tag/add"
+  post "users/new", to: "user#new"
+  get "users/login", to: "user#login"
+  get "users/logout", to: "user#logout"
+  get "users/index", to: "user#index"
+  get "users", to: "user#index"
+  
+  get "blogs/listbyuser", to: "blog#listbyuser"
+  get "blogs/articledetail", to: "blog#articledetail"
+  get "blogs/new", to: "blog#new"
+  post "blogs/save", to: "blog#save"
+
+  get "comments/getcomments", to: "comment#getcomments"
+  post "comments/new", to: "comment#new"
+
+  get "tags/get", to: "tag#get"
+  post "tags/add", to: "tag#add"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
