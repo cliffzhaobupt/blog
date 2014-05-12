@@ -69,6 +69,7 @@ class BlogController < ApplicationController
     @user = @article.user
   end
 
+  #update blog
   def update
     @article = BlogArticle.find(params[:id])
     if @article.update({
