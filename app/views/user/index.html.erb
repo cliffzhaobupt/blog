@@ -13,7 +13,7 @@
                     <a href=<%= "/blogs/listbyuser?id=#{user.id}" %> target="_blank" class="user-link">
                         <div class="img-wrapper"><img src=<%= users_photo_path(id: user.id) %>></div>
                         <p class="user-name"><%= user.username %></p>
-                        <%= simple_format user.self_intro, class: 'self-intro' %>
+                        <p class="self-intro"><%= raw user.self_intro.gsub(/\r\n/, '<br>') %></p>
                     </a>
                 </li>
                 <% end %>
