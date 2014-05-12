@@ -1,6 +1,6 @@
 <div class="blog-wrapper">
     <div class="blog-title-wrapper">
-        <h2><%= link_to article.title, blogs_articledetail_path(id: article.id) %></h2>
+        <h2><%= link_to truncate(article.title, length: 20), blogs_articledetail_path(id: article.id) %></h2>
         <h3>発表時間：<%= article.created_at_normalized %></h3>
         <h3>タグ：<%= article.tag.name %></h3>
     </div>
@@ -13,4 +13,10 @@
             <li><%= link_to "コメント数(#{article.comments_count})", blogs_articledetail_path(id: article.id) %></li>
         </ul>
     </div>
+    <% if could_edit %>
+    <div class="operate-panel">
+        <%= link_to '編集', blogs_edit_path(id: article.id) %>
+        <%= link_to '削除', blogs_delete_path(userid: userid, articleid: article.id), method: 'delete' %>
+    </div>
+    <% end %>
 </div>

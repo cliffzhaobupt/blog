@@ -142,6 +142,11 @@
 
             .blog-wrapper {
                 margin-bottom: 20px;
+                position: relative;
+            }
+
+            .blog-wrapper:hover .operate-panel {
+                display: block;
             }
 
             .right-part-content {
@@ -157,6 +162,35 @@
                 font-size: 14px;
                 color: #888;
             }
+
+            .operate-panel {
+                position: absolute;
+                width: 105px;
+                top: 39px;
+                right: 0;
+                display: none;
+
+                a {
+                    font-size: 14px;
+                    border: 1px solid #CCCCCC;
+                    margin: 0 10px 10px 0;
+                    padding: 3px 5px;
+                    display: inline-block;
+                    background: #FFFFFF;
+                    cursor: pointer;
+                    border-radius: 5px;
+                }
+
+                a:hover {
+                    color: #FFFFFF;
+                    background: #5B89DA;
+                    transition: color 0.2s linear, background 0.2s linear;
+                    -webkit-transition: color 0.2s linear, background 0.2s linear;
+                    -moz-transition: color 0.2s linear, background 0.2s linear;
+                    -o-transition: color 0.2s linear, background 0.2s linear;
+                }
+            }
+
             .blog-content {
                 font-size: 14px;
                 margin: 10px 0 10px;

@@ -13,7 +13,7 @@
             <div class="right-part-content">
                 <% if @has_articles %>
 
-                <%= render(partial: 'article', collection: @articles) %>
+                <%= render(partial: 'article', collection: @articles, locals: {could_edit: @could_edit, userid: @user.id}) %>
 
                 <ul class="blog-pagination pagination">
                     <li><%= link_to_if @current_page > 1, '前へ', blogs_listbyuser_path(id: @user.id, page: @current_page - 1) %></li>

@@ -13,6 +13,9 @@ Blog::Application.routes.draw do
   get "blogs/articledetail", to: "blog#articledetail"
   get "blogs/new", to: "blog#new"
   post "blogs/save", to: "blog#save"
+  delete "blogs/delete", to: "blog#delete"
+  get "blogs/edit", to: "blog#edit"
+  patch "blogs/update", to: "blog#update"
 
   get "comments/getcomments", to: "comment#getcomments"
   post "comments/new", to: "comment#new"

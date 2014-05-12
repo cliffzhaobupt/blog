@@ -24,6 +24,9 @@ $(document).ready(function () {
       tagField.append(Mustache.render(spanListTempl, data)
         + '<input class="add-tag-field" type="text"/>'
         + '<span class="tag add-tag">+</span>');
+      if(tagIdHiddenField.val()) {
+        $('[data-tag-id=\'' + tagIdHiddenField.val() + '\']').addClass('selected')
+      }
     };
    
     $.ajax({
@@ -55,6 +58,10 @@ $(document).ready(function () {
       });
       target.addClass('selected');
       tagIdHiddenField.val(target.attr('data-tag-id'));
+    }
+  }).delegate('.add-tag-field', 'keydown', function (e) {
+    if (e.keyCode == 13) {
+      $('.add-tag').trigger('click')
     }
   });
 

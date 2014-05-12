@@ -26,6 +26,12 @@
                             <li>コメント数(<%= @article.comments_count %>)</li>
                         </ul>
                     </div>
+                    <% if @could_edit %>
+                    <div class="operate-panel">
+                        <%= link_to '編集', blogs_edit_path(id: @article.id) %>
+                        <%= link_to '削除', blogs_delete_path(userid: @user.id, articleid: @article.id), method: 'delete' %>
+                    </div>
+                    <% end %>
                 </div>
                 <div class="comment-area-wrapper" data-article-id=<%= @article.id %>>
                     <div class="loading-wrapper"><img src="/assets/loading.gif"></div>

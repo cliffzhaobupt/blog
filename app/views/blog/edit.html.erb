@@ -1,0 +1,37 @@
+<div class="blog-list-page-wrapper">
+
+    <%= render(partial: 'pageheader', object: @user) %>
+    
+    <div class="main-content-wrapper clear-float">
+        <div class="left-part">
+
+        <%= render(partial: 'userinfo', object: @user) %>
+            
+        </div>
+        <div class="right-part">
+            <h1>新規ブログ</h1>
+            <div class="right-part-content">
+                <%= form_for @article, html: {class: 'new-article-form'}, url: blogs_update_path(id: @article.id) do |form| %>
+                    <div class="article-field">
+                    <%= form.label :title, 'タイトル' %>
+                    <%= form.text_field :title, class: 'must-have' %>
+                    </div>
+                    <div class="article-field">
+                    <%= form.label :tag_id, 'タグ'  %>
+                    <%= form.hidden_field :tag_id, class: 'J_TagId must-have' %>
+                        <div class="loading-wrapper J_TagLoading"><img src="/assets/loading.gif"></div>
+                        <div class="tag-field" data-user-id="<%= @user.id %>"></div>
+                    </div>
+                    <div class="article-field">
+                    <%= form.label :article, '内容' %>
+                    <%= form.text_area :article, class: 'must-have' %>
+                    </div>
+
+                    <div class="article-field submit-field">
+                        <button type="submit">文章を更新する</button>
+                    </div>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>
