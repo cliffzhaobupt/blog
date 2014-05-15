@@ -17,7 +17,7 @@ class BlogController < ApplicationController
     if @has_articles
       @page_count = (@user.blog_articles.size / Float(BlogPerPage)).ceil
       @current_page = Integer(params[:page] || 1)
-      @articles = @user.blog_articles.offset((@current_page - 1) * BlogPerPage).limit(BlogPerPage)
+      @articles = @user.blog_articles.order('created_at DESC').offset((@current_page - 1) * BlogPerPage).limit(BlogPerPage)
       @could_edit = (params[:id].to_i == session[:userid].to_i)
     end
   end
