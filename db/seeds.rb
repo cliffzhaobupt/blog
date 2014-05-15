@@ -9,3 +9,4 @@ User.destroy_all
 BlogArticle.destroy_all
 Tag.destroy_all
 Comment.destroy_all
+Photo.destroy_all
