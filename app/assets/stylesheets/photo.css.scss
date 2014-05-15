@@ -1,0 +1,89 @@
+// Place all the styles related to the photo controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.photo-form {
+  position: relative;
+
+  #add-field-btn {
+    position: absolute;
+    left: 0;
+    width: 60px;
+    bottom: 50px;
+  }
+}
+
+.photo-select-fields {
+  padding-left: 80px;
+}
+
+.photo-field {
+  margin-bottom: 10px;
+
+  label {
+    display: block;
+    font-size: 14px;
+  }
+}
+
+.last-field {
+  text-align: right;
+}
+
+.intro-field, .photo-wrapper {
+  background: #fff;
+  width: 160px;
+  padding: 8px;
+  border: #ccc 2px solid;
+  margin-bottom: 30px;
+}
+
+.photo-wrapper a {
+  font-size: 12px;
+}
+
+.photo-column {
+  float: left;
+  width: 176px;
+  margin: 0 11px 0 15px;
+}
+
+.intro-field:hover, .photo-wrapper:hover {
+  box-shadow: 0 0 5px #DB780C;
+  border-color: #DB780C;
+}
+
+.update-intro-form {
+  textarea {
+    width: 158px;
+    padding: 0;
+    margin: 0;
+    height: 50px;
+  }
+}
+
+.loading-hide {
+  display: none;
+}
+
+.button-hide {
+  display: none;
+}
+
+.popup-hide {
+  display: none;
+}
+
+.original-photo-popup {
+  position: absolute;
+  top: 100px;
+  width: 920px;
+  left: 50%;
+  margin-left: -460px;
+  z-index: 1;
+}
+
+.original-photo-wrapper {
+  text-align: center;
+  width: 900px;
+  padding: 10px;
+}

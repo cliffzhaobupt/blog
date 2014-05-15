@@ -1,0 +1,41 @@
+<div class="blog-list-page-wrapper">
+
+  <%= render partial: 'blog/pageheader', object: @user %>
+
+  <div class="main-content-wrapper clear-float">
+    <div class="left-part">
+
+      <%= render partial: 'blog/userinfo', object: @user %>
+
+    </div>
+    <div class="right-part">
+      <h1>画像アプロード</h1>
+      <div class="right-part-content">
+          <%= form_for :photos, url: photos_upload_path, html: {class: 'photo-form', enctype: 'multipart/form-data'} do %>
+          <button id="add-field-btn" class="add-field-btn">+画像</button>
+          <ul class="photo-select-fields">
+            <li class="photo-field">
+              <label for="photo1">画像 1</label>
+              <input type="file" name="photos[photo1]" id="photo1"/>
+            </li>
+          </ul>
+          <div class="photo-field last-field">
+            <button class="submit-btn upload-btn">アプロード開始</button>
+          </div>
+          <% end %>
+          <div class="loading-wrapper loading-hide"><img src="/assets/loading.gif"></div>
+          <%= form_for :intros, url: photos_updateintro_path, html: {class: 'update-intro-form'} do %>
+            <ul class="intro-fields-wrapper clear-float">
+              <!-- <li class="intro-field">
+                <img src="/photos/getthumbnail?id=1"/>
+                <textarea data-photo-id="1" name="intros[intro1]"></textarea>
+              </li> -->
+            </ul>
+            <div class="last-field">
+              <button class="submit-btn intro-update-btn  button-hide">画像紹介を更新する</button>
+            </div>
+          <% end %>
+      </div>
+    </div>
+  </div>
+</div>

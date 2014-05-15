@@ -53,7 +53,7 @@ class UserController < ApplicationController
             'column_4' => []
         }
         User.limit(12).offset((@current_page - 1) * 12).each.with_index do |user, index|
-            @user["column_#{index%4 + 1}"] << user
+            @user["column_#{index % 4 + 1}"] << user
         end
     end
 

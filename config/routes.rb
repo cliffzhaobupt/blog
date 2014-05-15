@@ -22,6 +22,13 @@ Blog::Application.routes.draw do
 
   get "tags/get", to: "tag#get"
   post "tags/add", to: "tag#add"
+
+  get "photos/new", to: "photo#new"
+  post "photos/upload", to: "photo#upload"
+  get "photos/getoriginal", to: "photo#getoriginal"
+  get "photos/getthumbnail", to: "photo#getthumbnail"
+  post "photos/updateintro", to: "photo#updateintro"
+  get "photos/list", to: "photo#list"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -147,7 +147,7 @@ $(document).ready(function(){
         //If all the fields r valid, submit the form
         if (willSubmit) {
             $(this).ajaxSubmit({
-                success: function(data) {
+                success: function (data) {
                     //Successfully sign-up, remove server side error messages
                     //then, refresh current page - use reload(true)
                     if (data.success) {

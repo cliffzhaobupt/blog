@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140508123435) do
+ActiveRecord::Schema.define(version: 20140515070127) do
 
   create_table "blog_articles", force: true do |t|
     t.string   "title"
@@ -30,6 +30,16 @@ ActiveRecord::Schema.define(version: 20140508123435) do
     t.datetime "updated_at"
     t.integer  "user_id"
     t.integer  "blog_article_id"
+  end
+
+  create_table "photos", force: true do |t|
+    t.integer  "user_id"
+    t.text     "intro"
+    t.binary   "thumbnail"
+    t.binary   "original"
+    t.string   "content_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "tags", force: true do |t|
@@ -53,6 +63,7 @@ ActiveRecord::Schema.define(version: 20140508123435) do
     t.integer  "tags_count",          default: 0
     t.binary   "photo"
     t.binary   "small_photo"
+    t.integer  "photos_count",        default: 0
   end
 
 end

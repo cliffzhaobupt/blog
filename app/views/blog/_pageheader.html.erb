@@ -4,6 +4,6 @@
 </div>
 <ul class="blogger-links">
     <li><%= link_to 'ブログ一覧', blogs_listbyuser_path(id: pageheader.id) %></li>
-    <li><a href="javascript:void(0)">画像アルバム</a></li>
+    <li><%= link_to '画像アルバム', photos_list_path(id: pageheader.id) %></li>
     <li><a href="javascript:void(0)">メッセージボックス</a></li>
 </ul>

@@ -90,6 +90,11 @@
                 -o-transition: color 0.2s linear, background 0.2s linear;
             }
 
+            button.disabled-btn {
+                color: #f60;
+                background: #ccc;
+            }
+
             .article-field {
                 margin-bottom: 10px;
 
