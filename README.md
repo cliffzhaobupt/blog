@@ -98,3 +98,40 @@ rake db:seed
 Also, u need to install [ImageMagick](http://www.imagemagick.org/script/binary-releases.php) in your system.
 
 In the upload part, user's photo is resized into 2 sizes. One is used as the photo in index, blog list, and article detail page. While, the other one is used as the smaller photo in the comment posted by this user.
+
+
+## Week 4
+
+To check the functions realized this week, you need to pull the branch called <tt>photoalbum</tt>.
+
+Also, you need to install [ImageMagick](http://www.imagemagick.org/script/binary-releases.php) in your system.
+
+### Edit and Delete Blog Article
+
+In the GIF, at first, the user logs in. And then, click "ブログ一覧" link to go to blog list page of currently logged-in user. At this page, the "編集" and "削除" button will appear when the user's mouse enters the area of one article. Also, at the article detail page, user will see those two buttons. By clicking those buttons, user can edit and delete corresponding blog articles.
+
+<img src="https://github.com/cliffzhaobupt/blog/raw/master/sampleimg/articleeditdelete.gif"/>
+
+After edit, user will be redirected to the detail page of current article.
+
+After delete, user will be redirected to the article list page.
+
+### Photo Album Page
+
+In the GIF, at first, browse <tt>http://0.0.0:3000</tt>. And then, user selects one user. In the blog list page, by clicking "画像アルバム" link, user enters the photo album of the blog user. 
+
+<img src="https://github.com/cliffzhaobupt/blog/raw/master/sampleimg/photolist.gif"/>
+
+Click thumbnails in album page, the corresponding original photo will pop-up.
+
+Click area outside the pop-up, the pop-up will be closed.
+
+### Upload Pictures to Photo Album
+
+In the GIF, at first, the user logs in. And then, click "画像アプロード" link to go to the album upload page. And then, the user selects photos to be uploaded. After selecting, he clicks "アプロード開始" button. Wait a minute, user can edit the introduction of each photo. After editing, he click the "画像紹介を更新する" button to save his edit.
+
+<img src="https://github.com/cliffzhaobupt/blog/raw/master/sampleimg/uploadphotoalbum.gif"/>
+
+After saving the edit of photo introduction, user will be redirected to his photo album page.
+
+TODO: add validations
