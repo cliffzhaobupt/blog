@@ -133,3 +133,5 @@ In the GIF, at first, the user logs in. And then, click "画像アプロード" 
 <img src="https://github.com/cliffzhaobupt/blog/raw/master/sampleimg/uploadphotoalbum.gif"/>
 
 After saving the edit of photo introduction, user will be redirected to his photo album page.
+
+TODO: add validations
