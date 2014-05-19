@@ -1,0 +1,41 @@
+<div class="blog-list-page-wrapper">
+
+    <%= render(partial: 'pageheader', object: @user) %>
+    
+    <div class="main-content-wrapper clear-float">
+        <div class="left-part">
+
+        <%= render(partial: 'userinfo', object: @user) %>
+            
+        </div>
+        <div class="right-part">
+            <h1>タグ「<%= @tag.name %>」のブログ一覧</h1>
+            <div class="right-part-content">
+                <% if @has_articles %>
+
+                <%= render(partial: 'article', collection: @articles, locals: {could_edit: @could_edit, userid: @user.id}) %>
+
+                <ul class="blog-pagination pagination">
+                    <li><%= link_to_if @current_page > 1, '前へ', blogs_listbytag_path(id: @tag.id, page: @current_page - 1) %></li>
+                    <!-- <li>...</li> -->
+                    <% (1..@page_count).each do |num| %>
+                        <% if num == @current_page %>
+                        <li class="current-page"><%= num %></li>
+                        <% else %>
+                        <li><%= link_to num, blogs_listbytag_path(id: @tag.id, page: num) %></li>
+                        <% end %>
+                    <% end %>
+                    <!-- <li>...</li> -->
+                    <li><%= link_to_if @current_page < @page_count, '次へ', blogs_listbytag_path(id: @tag.id, page: @current_page + 1) %></li>
+                    <li>合計<%= @page_count %>ページ</li>
+                </ul>
+                <% else %>
+                <div class="no-blog-wrapper">
+                <img src="/assets/sorry.jpg">
+                <h3 class="no-blog-notice">ただいま、ブログがございません。</h3>
+                </div>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>

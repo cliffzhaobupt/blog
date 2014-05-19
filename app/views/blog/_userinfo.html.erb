@@ -23,7 +23,7 @@
         <% if userinfo.tags.any? %>
         <ul>
             <% userinfo.tags.each do |tag| %>
-            <li><a href="javascript:void(0)"><%= tag.name %></a></li>
+            <li><%= link_to tag.name, blogs_listbytag_path(id: tag.id) %></li>
             <% end %>
         </ul>
         <% else %>

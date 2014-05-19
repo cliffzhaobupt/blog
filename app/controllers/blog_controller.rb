@@ -85,6 +85,20 @@ class BlogController < ApplicationController
     end
   end
 
+  #blog list by tag id
+  def listbytag
+    @tag = Tag.find(params[:id])
+    @user = @tag.user
+
+    @has_articles = @tag.blog_articles.size > 0
+    if @has_articles
+      @current_page = Integer(params[:page] || 1)
+      @page_count = (@tag.blog_articles.size / Float(BlogPerPage)).ceil
+      @articles = @tag.blog_articles.order('created_at DESC').offset((@current_page - 1) * BlogPerPage).limit(BlogPerPage)
+      @could_edit = (@user.id == session[:userid].to_i)
+    end
+  end
+
   protected
     def check_login
       unless session.has_key?(:userid)

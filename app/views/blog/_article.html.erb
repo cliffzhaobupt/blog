@@ -2,7 +2,7 @@
     <div class="blog-title-wrapper">
         <h2><%= link_to truncate(article.title, length: 20), blogs_articledetail_path(id: article.id) %></h2>
         <h3>発表時間：<%= article.created_at_normalized %></h3>
-        <h3>タグ：<%= article.tag.name %></h3>
+        <h3>タグ：<%= link_to article.tag.name, blogs_listbytag_path(id: article.tag.id) %></h3>
     </div>
     <div class="blog-content">
         <%= truncate article.article.gsub(/<[^>]*>/, ' '), length: 200 %>
