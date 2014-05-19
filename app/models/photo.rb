@@ -10,6 +10,6 @@ class Photo < ActiveRecord::Base
     image.resize '160'
     self.thumbnail = image.to_blob
     self.intro = photo_field.original_filename
-    self.content_type = photo_field.content_type
+    self.content_type = photo_field.content_type.chomp
   end
 end

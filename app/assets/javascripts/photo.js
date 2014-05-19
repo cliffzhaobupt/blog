@@ -7,7 +7,7 @@ $(document).ready(function () {
       newFieldHtml = [
         '<li class="photo-field">',
         '<label for="photo', newIndex, '">画像 ', newIndex, '</label>',
-        '<input type="file" name="photos[photo', newIndex,
+        '<input type="file" class="photo-file-input" accept="image/*" name="photos[photo', newIndex,
         ']" id="photo', newIndex, '"/>',
         '</li>'
       ].join('');
@@ -28,6 +28,13 @@ $(document).ready(function () {
   $('.photo-form').bind('submit', function (e) {
     e.preventDefault();
 
+    var couldSubmit = false;
+    $('.photo-file-input').each(function (index, elem) {
+      couldSubmit = elem.value || couldSubmit;
+    });
+
+    if (! couldSubmit) return;
+    
     $(this).ajaxSubmit({
       beforeSend: function () {
         $('.upload-btn').attr('disabled', true).addClass('disabled-btn');

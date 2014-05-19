@@ -1,4 +1,5 @@
 class PhotoController < ApplicationController
+  #redirect to the new photo upload page
   def new
     if session.has_key?(:userid)
       @user = User.find(session[:userid])
@@ -7,23 +8,26 @@ class PhotoController < ApplicationController
     end
   end
 
+  #upload photo
   def upload
     if session.has_key?(:userid)
       @user = User.find(session[:userid])
       jsonResponse = {just_add: []}
       params[:photos].each do |key, val|
-        photo = Photo.new({
-          upload_photo: val,
-          user_id: session[:userid]
-          })
-        if photo.save
-          jsonResponse[:just_add] << {
-            id: photo.id,
-            intro: photo.intro
-          }
-        else
-          render json: jsonResponse.merge({success: false})
-          return
+        unless val.class.to_s == "String"
+          photo = Photo.new({
+            upload_photo: val,
+            user_id: session[:userid]
+            })
+          if photo.save
+            jsonResponse[:just_add] << {
+              id: photo.id,
+              intro: photo.intro
+            }
+          else
+            render json: jsonResponse.merge({success: false})
+            return
+          end
         end
       end
       render json: jsonResponse.merge({success: true})
@@ -32,11 +36,13 @@ class PhotoController < ApplicationController
     end
   end
 
+  #get original photo
   def getoriginal
     photo = Photo.find(params[:id])
     send_data photo.original, type: photo.content_type, disposition: 'inline'
   end
 
+  #update the introduction of uploaded photos
   def updateintro
     if session.has_key?(:userid)
       params[:intros].each do |key, val|
@@ -50,6 +56,7 @@ class PhotoController < ApplicationController
     end
   end
 
+  #photo list of a certain user
   def list
     @user = User.find(params[:id])
     @photo_columns = {
@@ -62,6 +69,7 @@ class PhotoController < ApplicationController
     end
   end
 
+  #get thumbnail photo
   def getthumbnail
     photo = Photo.find(params[:id])
     send_data photo.thumbnail, type: photo.content_type, disposition: 'inline'
