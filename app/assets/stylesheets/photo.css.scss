@@ -95,3 +95,23 @@
   width: 900px;
   padding: 10px;
 }
+
+.photo-list {
+  #load-more-btn {
+    width: 100%;
+  }
+}
+
+.img-change-btn {
+  position: absolute;
+  top: 30%;
+  font-size: 100px;
+}
+
+.prev-img-btn {
+  left: -60px;
+}
+
+.next-img-btn {
+  right: -60px;
+}

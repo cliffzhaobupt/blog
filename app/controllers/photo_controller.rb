@@ -1,4 +1,6 @@
 class PhotoController < ApplicationController
+  PicsPerPage = 9
+
   #redirect to the new photo upload page
   def new
     if session.has_key?(:userid)
@@ -59,13 +61,43 @@ class PhotoController < ApplicationController
   #photo list of a certain user
   def list
     @user = User.find(params[:id])
+    @page_count = (@user.photos.size / Float(PicsPerPage)).ceil
+    @current_page = Integer(params[:page] || 1)
+
     @photo_columns = {
       'column_1' => [],
       'column_2' => [],
       'column_3' => []
     }
-    @user.photos.each.with_index do |photo, index|
+    @user.photos.offset((@current_page - 1) * PicsPerPage).limit(PicsPerPage).each.with_index do |photo, index|
+      photo.index_in_page = (@current_page - 1) * PicsPerPage + index
       @photo_columns["column_#{index % 3 + 1}"] << photo
+    end
+
+    respond_to do |format|
+      format.html
+      format.json do
+        photo_columns_json = {
+          'column_1' => [],
+          'column_2' => [],
+          'column_3' => []
+        }
+        @photo_columns.each do |key, photos_in_column|
+          photos_in_column.each do |current_photo|
+            photo_columns_json[key] << {
+              intro: current_photo.intro,
+              id: current_photo.id,
+              index: current_photo.index_in_page
+            }
+          end
+        end
+
+        render json: {
+        currentPage: @current_page,
+        pageCount: @page_count,
+        photoColumns: photo_columns_json
+        }
+      end
     end
   end
 

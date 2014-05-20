@@ -1,3 +1,32 @@
+function initImgChangeBtns (currentIndex, popUp, prevBtn, nextBtn) {
+  currentIndex = parseInt(currentIndex);
+  popUp.attr('data-index', currentIndex);
+  var prevPhotoLinkTag = $('.photo-column [data-index=' + (currentIndex - 1) + ']'),
+    nextPhotoLinkTag = $('.photo-column [data-index=' + (currentIndex + 1) + ']');
+
+  if (prevPhotoLinkTag.get(0)) {
+    prevBtn
+      .removeClass('button-hide')
+      .attr({
+        'data-origin-url': prevPhotoLinkTag.attr('data-origin-url'),
+        'data-index': currentIndex - 1
+      });
+  } else {
+    prevBtn.addClass('button-hide');
+  }
+    
+  if (nextPhotoLinkTag.get(0)) {
+    nextBtn
+      .removeClass('button-hide')
+      .attr({
+        'data-origin-url': nextPhotoLinkTag.attr('data-origin-url'),
+        'data-index': currentIndex + 1
+      });
+  } else {
+    nextBtn.addClass('button-hide');
+  }
+}
+
 $(document).ready(function () {
   // add new upload photo field
   $('.add-field-btn').bind('click', function (e) {
@@ -34,7 +63,7 @@ $(document).ready(function () {
     });
 
     if (! couldSubmit) return;
-    
+
     $(this).ajaxSubmit({
       beforeSend: function () {
         $('.upload-btn').attr('disabled', true).addClass('disabled-btn');
@@ -55,19 +84,78 @@ $(document).ready(function () {
 
   // click photo and show pop-up
   var originalPhotoTag = $('.original-photo-wrapper img'),
-    originalPhotoPopup = $('.original-photo-popup');
-  $('.photo-wrapper a').bind('click', function (e) {
+    originalPhotoPopup = $('.original-photo-popup'),
+    prevBtn = $('.prev-img-btn'),
+    nextBtn = $('.next-img-btn');
+  $('body').delegate('.photo-wrapper a', 'click', function (e) {
     e.stopPropagation();
     var target = $(e.currentTarget);
+
+    initImgChangeBtns(target.attr('data-index'), originalPhotoPopup, prevBtn, nextBtn);
+
     originalPhotoTag.attr('src', target.attr('data-origin-url'));
-    originalPhotoPopup.fadeIn(500);
+    originalPhotoPopup.css('top',
+      (document.body.scrollTop + 80) + 'px').fadeIn(500);
   });
 
+  // click areas outside the pop-up, the pop-up disappears
   originalPhotoPopup.bind('click', function (e) {
     e.stopPropagation();
   });
 
   $('body').bind('click', function (e) {
     originalPhotoPopup.fadeOut(500);
+  });
+
+  // click next and prev buttons in the popup to change photo
+  $('.img-change-btn').bind('click', function (e) {
+    var target = $(e.currentTarget);
+    originalPhotoTag.attr('src', target.attr('data-origin-url'));
+    initImgChangeBtns(target.attr('data-index'), originalPhotoPopup, prevBtn, nextBtn);
+  });
+
+  // click 'もっと見る' button and load more pics of current user
+  $('.load-more-btn').bind('click', function (e) {
+    var target = $(e.currentTarget),
+      outsideDivWrapper = target.parents('.photo-list'),
+      userId = outsideDivWrapper.attr('data-user-id'),
+      currentPage = parseInt(outsideDivWrapper.attr('data-current-page')),
+      pageCount = parseInt(outsideDivWrapper.attr('data-page-count'));
+
+    if (currentPage < pageCount) {
+      $.get('/photos/list.json', {
+        id: userId,
+        page: currentPage + 1
+      }, function (data) {
+        console.log(data);
+
+        if (data.currentPage = data.pageCount) {
+          target.addClass('disabled-btn').attr('disabled', true);
+        }
+        outsideDivWrapper.attr({
+          'data-current-page': data.currentPage,
+          'data-page-count': data.pageCount
+        });
+
+        $('.photo-column').each(function (index, column) {
+          var photoWrappers = [],
+            photoInfoArr = data.photoColumns['column_' + (index + 1)];
+          for (var i = 0, len = photoInfoArr.length ; i < len ; i ++) {
+            var photoInfo = photoInfoArr[i];
+            photoWrappers.push([
+              '<li class="photo-wrapper">',
+              '<a href="javascript:void(0)" data-index="', photoInfo.index,
+              '" data-origin-url="/photos/getoriginal',
+              '?id=', photoInfo.id, '">',
+              '<img src="/photos/getthumbnail?id=', photoInfo.id, '"/>',
+              '<p>', photoInfo.intro, '</p>',
+              '</a>', '</li>'
+              ].join(''));
+          }
+          $(column).append(photoWrappers.join(''));
+        });
+
+      });
+    }
   });
 });

@@ -11,12 +11,12 @@
     <div class="right-part">
       <h1>画像アルバム</h1>
       <div class="right-part-content">
-        <div class="photo-list clear-float">
+        <div class="photo-list clear-float" data-user-id=<%= @user.id %> data-current-page=<%= @current_page %> data-page-count=<%= @page_count %>>
           <% (1..3).each do |column_index| %>
           <ul class="photo-column">
             <% @photo_columns["column_#{column_index}"].each do |photo| %>
               <li class="photo-wrapper">
-                <a href="javascript:void(0)" data-origin-url=<%= photos_getoriginal_path(id: photo.id) %>>
+                <a href="javascript:void(0)" data-index=<%= photo.index_in_page %> data-origin-url=<%= photos_getoriginal_path(id: photo.id) %>>
                   <%= image_tag photos_getthumbnail_path(id: photo.id) %>
                   <p><%= photo.intro %></p>
                 </a>
@@ -25,6 +25,9 @@
           </ul>
           <% end %>
         </ul>
+        <% if @current_page < @page_count %>
+        <button id="load-more-btn" class="load-more-btn">もっと見る</button>
+        <% end %>
       </div>
     </div>
   </div>
@@ -37,4 +40,6 @@
   <div class="original-photo-wrapper">
     <img src="">
   </div>
+  <a class="img-change-btn prev-img-btn" href="javascript:void(0)">&lt;</a>
+  <a class="img-change-btn next-img-btn" href="javascript:void(0)">&gt;</a>
 </div>

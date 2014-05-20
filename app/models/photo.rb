@@ -2,6 +2,7 @@ require 'mini_magick'
 
 class Photo < ActiveRecord::Base
   belongs_to :user, counter_cache: true
+  attr_accessor :index_in_page
 
   def upload_photo=(photo_field)
     image = MiniMagick::Image.read(photo_field.read)
