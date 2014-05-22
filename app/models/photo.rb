@@ -13,4 +13,14 @@ class Photo < ActiveRecord::Base
     self.intro = photo_field.original_filename
     self.content_type = photo_field.content_type.chomp
   end
+
+  def upload_photo_in_article=(photo_field)
+    image = MiniMagick::Image.read(photo_field.read)
+    image.resize '600>'
+    self.original = image.to_blob
+    image.resize '160'
+    self.thumbnail = image.to_blob
+    self.intro = photo_field.original_filename
+    self.content_type = photo_field.content_type.chomp
+  end
 end

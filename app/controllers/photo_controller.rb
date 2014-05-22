@@ -38,6 +38,16 @@ class PhotoController < ApplicationController
     end
   end
 
+  #upload photo in article
+  def uploadinarticle
+    photo = Photo.new({
+        upload_photo_in_article: params[:photo],
+        user_id: @id_login
+      })
+    photo.save
+    render json: {url: photos_getoriginal_path(id: photo.id)}
+  end
+
   #get original photo
   def getoriginal
     photo = Photo.find(params[:id])

@@ -23,7 +23,9 @@
           <ul class="photo-column">
             <% @photo_columns["column_#{column_index}"].each do |photo| %>
               <li class="photo-wrapper">
+                <% if @could_edit %>
                 <img class="delete-radio" data-db-index=<%= photo.id %> title="削除する" src="/assets/delete.png"/>
+                <% end %>
                 <a href="javascript:void(0)" data-index=<%= photo.index_in_page %> data-origin-url=<%= photos_getoriginal_path(id: photo.id) %>>
                   <%= image_tag photos_getthumbnail_path(id: photo.id) %>
                   <% unless @could_edit %>
