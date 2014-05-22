@@ -1,4 +1,4 @@
-class BlogController < ApplicationController
+class BlogsController < ApplicationController
   before_action :check_login, only: [:new]
   BlogPerPage = 5
 

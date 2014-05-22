@@ -1,4 +1,4 @@
-class PhotoController < ApplicationController
+class PhotosController < ApplicationController
   PicsPerPage = 9
 
   #redirect to the new photo upload page
