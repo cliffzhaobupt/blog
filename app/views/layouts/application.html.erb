@@ -21,6 +21,7 @@
                     <%= link_to('新規ブログ', blogs_new_path) %>
                     <%= link_to('ブログ一覧', blogs_listbyuser_path(id: @id_login)) %>
                     <%= link_to '画像アプロード', photos_new_path %>
+                    <%= link_to '画像アルバム', photos_list_path(id: @id_login) %>
                     <%= link_to('ログアウト', users_logout_path) %>
                     <!-- <a class="J_LogOutBtn" href="javascript:void(0)">ログアウト</a> -->
                 <% end %>

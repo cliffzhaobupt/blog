@@ -27,6 +27,16 @@ function initImgChangeBtns (currentIndex, popUp, prevBtn, nextBtn) {
   }
 }
 
+function pushOrDelete (array, element) {
+  for (var i = 0, len = array.length ; i < len ; i ++) {
+    if (array[i] == element) {
+      array.splice(i ,1);
+      return;
+    }
+  }
+  array.push(element);
+}
+
 $(document).ready(function () {
   // add new upload photo field
   $('.add-field-btn').bind('click', function (e) {
@@ -96,6 +106,8 @@ $(document).ready(function () {
     originalPhotoTag.attr('src', target.attr('data-origin-url'));
     originalPhotoPopup.css('top',
       (document.body.scrollTop + 80) + 'px').fadeIn(500);
+  }).delegate('.photo-wrapper a textarea', 'click', function (e) {
+    e.stopPropagation();
   });
 
   // click areas outside the pop-up, the pop-up disappears
@@ -142,20 +154,83 @@ $(document).ready(function () {
             photoInfoArr = data.photoColumns['column_' + (index + 1)];
           for (var i = 0, len = photoInfoArr.length ; i < len ; i ++) {
             var photoInfo = photoInfoArr[i];
-            photoWrappers.push([
-              '<li class="photo-wrapper">',
-              '<a href="javascript:void(0)" data-index="', photoInfo.index,
-              '" data-origin-url="/photos/getoriginal',
-              '?id=', photoInfo.id, '">',
-              '<img src="/photos/getthumbnail?id=', photoInfo.id, '"/>',
-              '<p>', photoInfo.intro, '</p>',
-              '</a>', '</li>'
-              ].join(''));
+            if (data.couldEdit) {
+              photoWrappers.push([
+                '<li class="photo-wrapper">',
+                '<img class="delete-radio" data-db-index="', photoInfo.id,
+                '" title="削除する" src="/assets/delete.png"/>',
+                '<a href="javascript:void(0)" data-index="', photoInfo.index,
+                '" data-origin-url="/photos/getoriginal',
+                '?id=', photoInfo.id, '">',
+                '<img src="/photos/getthumbnail?id=', photoInfo.id, '"/>',
+                '<textarea data-db-index="', photoInfo.id, '">',
+                photoInfo.intro, '</textarea>',
+                '</a>', '</li>'
+                ].join(''));
+            } else {
+              photoWrappers.push([
+                '<li class="photo-wrapper">',
+                '<a href="javascript:void(0)" data-index="', photoInfo.index,
+                '" data-origin-url="/photos/getoriginal',
+                '?id=', photoInfo.id, '">',
+                '<img src="/photos/getthumbnail?id=', photoInfo.id, '"/>',
+                '<p>', photoInfo.intro, '</p>',
+                '</a>', '</li>'
+                ].join(''));  
+            }
           }
           $(column).append(photoWrappers.join(''));
         });
 
       });
     }
+  });
+
+  // after editting photo's introduction
+  var edittedIntros = {},
+    edittedIntroCount = 0,
+    edittedIntroCountEm = $('.edit-intro em');
+  $('body').delegate('.photo-wrapper a textarea', 'change', function (e) {
+    var target = $(e.currentTarget);
+    if (! target.hasClass('editted-intro')) {
+      target.addClass('editted-intro');
+      edittedIntroCount ++;
+    }
+    edittedIntros[target.attr('data-db-index')] = target.val();
+    edittedIntroCountEm.text(edittedIntroCount);
+  });
+
+  // after selecting photos to be deleted
+  var deletePhotos = [],
+    deletePhotoCountEm = $('.delete-photo em');
+  $('body').delegate('.delete-radio', 'click', function (e) {
+    var target = $(e.currentTarget),
+      title = target.attr('title');
+    target.parent().toggleClass('delete-later');
+    target.attr('title', title == '削除する' ? '削除しません' : '削除する');
+    pushOrDelete(deletePhotos, target.attr('data-db-index'));
+    deletePhotoCountEm.text(deletePhotos.length);
+  });
+
+  // click save edit button
+  $('.save-edit').bind('click', function (e) {
+    target = $(e.currentTarget);
+    if (edittedIntroCount == 0 && deletePhotos.length == 0) return;
+    $.ajax({
+      url: '/photos/editanddelete',
+      type: 'post',
+      data: {
+        'intro': JSON.stringify(edittedIntros),
+        'delete': JSON.stringify(deletePhotos)
+      },
+      beforeSend: function () {
+        target.attr('disabled', true).addClass('disabled-btn');
+      },
+      success: function (data) {
+        edittedIntros = {};
+        console.log('success');
+        location.reload(true);
+      }
+    });
   });
 });

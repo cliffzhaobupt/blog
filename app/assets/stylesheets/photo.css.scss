@@ -115,3 +115,58 @@
 .next-img-btn {
   right: -60px;
 }
+
+.photo-column .photo-wrapper textarea {
+  width: 154px;
+  padding: 2px;
+  border-width: 1px;
+  height: 3em;
+}
+
+.photo-column .photo-wrapper textarea.editted-intro {
+  background: #F3EDAB;
+}
+
+.photo-column .photo-wrapper {
+  position: relative;
+}
+
+.photo-column .photo-wrapper .delete-radio {
+  display: none;
+  position: absolute;
+  top: -15px;
+  left: -15px;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.photo-column .photo-wrapper:hover .delete-radio {
+  display: block;
+}
+
+.photo-list .photo-column .delete-later {
+  box-shadow: 0 0 5px #DB780C;
+  border-color: #DB780C;
+}
+
+.photo-list .photo-column .delete-later .delete-radio {
+  display: block;
+}
+
+.edit-area {
+  text-align: right;
+  margin-bottom: 20px;
+  margin-right: 22px;
+}
+
+.edit-area span {
+  margin-right: 20px;
+  padding-right: 20px;
+  border-right: 3px solid #DB780C;
+}
+
+.edit-area span em {
+  font-style: normal;
+  font-size: 15px;
+}

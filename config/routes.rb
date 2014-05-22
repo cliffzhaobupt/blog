@@ -30,6 +30,7 @@ Blog::Application.routes.draw do
   get "photos/getthumbnail", to: "photo#getthumbnail"
   post "photos/updateintro", to: "photo#updateintro"
   get "photos/list", to: "photo#list"
+  post "photos/editanddelete", to: "photo#editanddelete"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -63,6 +63,7 @@ class PhotoController < ApplicationController
     @user = User.find(params[:id])
     @page_count = (@user.photos.size / Float(PicsPerPage)).ceil
     @current_page = Integer(params[:page] || 1)
+    @could_edit = (@id_login.to_i == params[:id].to_i)
 
     @photo_columns = {
       'column_1' => [],
@@ -93,6 +94,7 @@ class PhotoController < ApplicationController
         end
 
         render json: {
+        couldEdit: @could_edit,
         currentPage: @current_page,
         pageCount: @page_count,
         photoColumns: photo_columns_json
@@ -105,5 +107,24 @@ class PhotoController < ApplicationController
   def getthumbnail
     photo = Photo.find(params[:id])
     send_data photo.thumbnail, type: photo.content_type, disposition: 'inline'
+  end
+
+  #edit photos' intro and delete photos
+  def editanddelete
+    intro_edit_hash = ActiveSupport::JSON.decode params[:intro] 
+    photo_delete_array = ActiveSupport::JSON.decode params[:delete]
+    
+    photo_delete_array.each do |photo_id|
+      Photo.find(photo_id).destroy
+      intro_edit_hash.delete photo_id
+    end
+
+    intro_edit_hash.each do |photo_id, intro|
+      photo_to_edit = Photo.find(photo_id)
+      photo_to_edit.intro = intro
+      photo_to_edit.save
+    end
+
+    render json: {success: true}
   end
 end
