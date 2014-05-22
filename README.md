@@ -135,3 +135,39 @@ In the GIF, at first, the user logs in. And then, click "画像アプロード" 
 After saving the edit of photo introduction, user will be redirected to his photo album page.
 
 TODO: add validations
+
+## Week 5
+
+To check the functions realized this week, you need to pull the branch called <tt>photoalbum</tt>.
+
+### Article List of Tags
+
+<img src="https://github.com/cliffzhaobupt/blog/raw/master/sampleimg/taglist.gif"/>
+
+User can browse article list of a certain tag by click the tag link in the left part of the web page or the tag link under one article title.
+
+### Photo Album Page Improvement
+
+<img src="https://github.com/cliffzhaobupt/blog/raw/master/sampleimg/improvephotoalbum.gif"/>
+
+User can browse more photos by click the button called "もっと見る" at the bottom of photo album page.
+
+User can move to the previous or next photo by click the buttons besides the pop-up of original photo.
+
+### Photo Album Management
+
+<img src="https://github.com/cliffzhaobupt/blog/raw/master/sampleimg/photomanagement.gif"/>
+
+When the user browse his own photo album page, after log-in, he can delete photos and change introduction of photos.
+
+By click the icon at the top left corner of the photo, user can mark this photo for deleting it later. Click for the second time, user can cancel this mark.
+
+By change the content in textareas under the photo, user can later change the introduction of photos.
+
+After marking photos and change content in textareas, user could click "編集を保存する" button to save his changes.
+
+### Upload Photos in Blog Article
+
+<img src="https://github.com/cliffzhaobupt/blog/raw/master/sampleimg/uploadphotoinblog.gif"/>
+
+When user editting blog article, he can click the link of adding photo, and then select one local photo and update it to the server. After being updated, the photo is appended into the current article.
