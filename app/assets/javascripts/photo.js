@@ -141,7 +141,7 @@ $(document).ready(function () {
       }, function (data) {
         console.log(data);
 
-        if (data.currentPage = data.pageCount) {
+        if (data.currentPage == data.pageCount) {
           target.addClass('disabled-btn').attr('disabled', true);
         }
         outsideDivWrapper.attr({
