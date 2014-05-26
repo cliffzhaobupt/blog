@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
   has_many :blog_articles
   has_many :tags
   has_many :photos
+  has_many :received_messages, class_name: 'Message', foreign_key: 'receiver_id'
+  has_many :sent_messages, class_name: 'Message', foreign_key: 'sender_id'
 
   validates :username, uniqueness: true
   validates :username, :password, :email, :gender, presence: true
