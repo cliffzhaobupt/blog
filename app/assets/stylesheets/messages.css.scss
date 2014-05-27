@@ -1,3 +1,148 @@
 // Place all the styles related to the messages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.message-wrapper {
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.message-photo-link {
+  display: block;
+  width: 48px;
+  height: 48px;
+  overflow: hidden;
+  float: left;
+  
+}
+
+.message-info {
+  font-size: 14px;
+  margin-left: 65px;
+}
+
+.message-author-time {
+  font-weight: normal;
+  background: #DDDDDD;
+  border-radius: 5px;
+}
+
+.message-author-time, .message-content {
+  padding-left: 8px;
+}
+
+.message-time {
+  font-size: 12px;
+  color: #333333;
+}
+
+.message-content {
+  margin-top: 6px;
+}
+
+.reply-btn {
+  display: none;
+  width: 88px;
+  line-height: 21px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  text-align: center;
+  font-size: 12px;
+  background: #7795F5;
+  border-radius: 5px;
+}
+
+.message-wrapper:hover .reply-btn {
+  display: block;
+}
+
+.add-message-form-field {
+  margin-bottom: 10px;
+}
+
+.add-message-form-field label {
+  display: block;
+  font-size: 14px;
+  font-weight: 800;
+  margin-bottom: 5px;
+  color: #888888;
+}
+
+.add-message-form-field textarea {
+  width: 613px;
+  height: 100px;
+}
+
+.add-message-form-field:last-child {
+  text-align: right;
+  margin-bottom: 20px;
+}
+
+.reply-box {
+  display: none;
+  position: relative;
+  background: #F1D4AE;
+  margin-bottom: 10px;
+  padding: 5px 8px;
+}
+
+.reply-cancel-btn {
+  position: absolute;
+  right: 10px;
+  top: 8px;
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 14px;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+.reply-intro {
+  font-size: 12px;
+  color: #999999;
+  font-weight: normal;
+}
+
+.content-reply-to {
+  font-size: 12px;
+}
+
+.visible-reply-box {
+  display: block;
+}
+
+.reply-to-info {
+  font-size: 12px;
+  font-weight: normal;
+  background: #F1D4AE;
+  padding: 8px;
+  margin-top: 5px;
+  border-radius: 5px;
+}
+
+.reply-to-message-author {
+  font-weight: normal;
+  color: #999999;
+}
+
+.reply-to-info .reply-to-message-author a {
+  color: #999999;
+}
+
+.login-advise {
+  margin-bottom: 20px;
+  color: #333333;
+  font-size: 18px;
+  border-left: 10px solid #f60;
+  padding-left: 16px;
+
+}
+
+.blog-list-page-wrapper .main-content-wrapper .right-part .load-more-message-btn {
+  width: 100%;
+}
+
+.blog-list-page-wrapper .main-content-wrapper .right-part .disabled-load-message-btn {
+  color: #f60;
+  background: #CCCCCC;
+}

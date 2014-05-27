@@ -31,6 +31,9 @@ Blog::Application.routes.draw do
   get "photos/list"
   post "photos/editanddelete"
   post "photos/uploadinarticle"
+
+  get "messages/list"
+  post "messages/add"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

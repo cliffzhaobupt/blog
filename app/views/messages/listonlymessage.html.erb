@@ -1,0 +1,28 @@
+<ul class="message-list" data-current-page=<%= @current_page %> data-page-count=<%= @page_count %>>
+  <% @messages.each do |message| %>
+  <li class="message-wrapper clear-float">
+    <% if @id_login %>
+    <a href="javascript:void(0)" data-reply-to-id=<%= message.id %> class="reply-btn">返事を書く</a>
+    <% end %>
+    <a class="message-photo-link" href=<%= blogs_listbyuser_path(id: message.sender.id) %>>
+      <%= image_tag users_small_photo_path(id: message.sender.id), class: 'message-photo' %>
+    </a>
+    <div class="message-info">
+      <h4 class="message-author-time">
+        <%= link_to message.sender.username, blogs_listbyuser_path(id: message.sender.id) %>
+        <span class="message-time"><%= message.time_shown_in_webpage %></span>
+      </h4>
+      <% if message.reply_to %>
+      <div class="reply-to-info">
+        <h4 class="reply-to-message-author">
+          <%= link_to message.reply_to.sender.username, blogs_listbyuser_path(id: message.reply_to.sender.id) %>
+          <span class="reply-to-time"><%= message.reply_to.time_shown_in_webpage %></span>
+        </h4>
+        <%= simple_format message.reply_to.content, class: 'reply-to-content' %>
+      </div>
+      <% end %>
+      <%= simple_format message.content, class: 'message-content' %>
+    </div>
+  </li>
+  <% end %>
+</ul>

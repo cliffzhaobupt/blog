@@ -1,0 +1,69 @@
+<div class="blog-list-page-wrapper">
+
+  <%= render(partial: 'blogs/pageheader', object: @user) %>
+    
+  <div class="main-content-wrapper clear-float">
+    <div class="left-part">
+
+      <%= render(partial: 'blogs/userinfo', object: @user) %>
+            
+    </div>
+    <div class="right-part">
+      <h1>メッセージ</h1>
+        <div class="right-part-content">
+          <% if @id_login %>
+          <%= form_for :message, url: messages_add_path, method: :post, html: {class: 'add-message-form'} do |f| %>
+            <%= f.hidden_field :sender_id, value: @id_login %>
+            <%= f.hidden_field :receiver_id, value: @user.id %>
+            <%= f.hidden_field :reply_to_id, value: '', class: 'reply-to-hidden-field' %>
+            <div class="add-message-form-field">
+              <%= f.label :content, 'メッセージ内容' %>
+              <div class="reply-box">
+                <a href="javascript:void(0)" class="reply-cancel-btn">X</a>
+                <h4 class="reply-intro"></h4>
+                <p class="content-reply-to"></p>
+              </div>
+              <%= f.text_area :content, class: 'add-message-textarea' %>
+            </div>
+            <div class="add-message-form-field">
+              <button type="submit">メッセージを送る</button>
+            </div>
+          <% end %>
+          <% else %>
+          <p class="login-advise">メッセージを送るために、ログインしてください。</p>
+          <% end %>
+          <ul class="message-list" data-current-page=<%= @current_page %> data-page-count=<%= @page_count %> data-receiver-id=<%= @user.id %>>
+            <% @messages.each do |message| %>
+            <li class="message-wrapper clear-float">
+              <% if @id_login %>
+              <a href="javascript:void(0)" data-reply-to-id=<%= message.id %> class="reply-btn">返事を書く</a>
+              <% end %>
+              <a class="message-photo-link" href=<%= blogs_listbyuser_path(id: message.sender.id) %>>
+                <%= image_tag users_small_photo_path(id: message.sender.id), class: 'message-photo' %>
+              </a>
+              <div class="message-info">
+                <h4 class="message-author-time">
+                  <%= link_to message.sender.username, blogs_listbyuser_path(id: message.sender.id) %>
+                  <span class="message-time"><%= message.time_shown_in_webpage %></span>
+                </h4>
+                <% if message.reply_to %>
+                <div class="reply-to-info">
+                  <h4 class="reply-to-message-author">
+                    <%= link_to message.reply_to.sender.username, blogs_listbyuser_path(id: message.reply_to.sender.id) %>
+                    <span class="reply-to-time"><%= message.reply_to.time_shown_in_webpage %></span>
+                  </h4>
+                  <%= simple_format message.reply_to.content, class: 'reply-to-content' %>
+                </div>
+                <% end %>
+                <%= simple_format message.content, class: 'message-content' %>
+              </div>
+            </li>
+            <% end %>
+          </ul>
+          <% if @page_count > 1 %>
+          <button id="load-more-message-btn" class="load-more-message-btn">もっと見る</button>
+          <% end %>
+        </div>
+    </div>
+  </div>
+</div>

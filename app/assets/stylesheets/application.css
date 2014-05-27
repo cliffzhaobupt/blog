@@ -12,202 +12,202 @@
  *= require_tree .
  */
 
-body {
-    background: #e9e5db url(bg3.jpg) top center no-repeat;
+ body {
+  background: #e9e5db url(bg3.jpg) top center no-repeat;
 }
 
 .wrapper {
-    width: 950px;
-    margin: 0 auto;
-    padding-top: 100px;
+  width: 950px;
+  margin: 0 auto;
+  padding-top: 100px;
 }
 
 ul {
-    list-style: none;
+  list-style: none;
 }
 
 body, p, h1, h2, ul, ol, li, h3, h4 {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 h1, h2 {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 body, input, button, select, textarea {
-    font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif, "メイリオ", Meiryo;
-    color: #333;
+  font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif, "メイリオ", Meiryo;
+  color: #333;
 }
 
 a {
-    text-decoration: none;
-    color: #333;
-    margin: 0;
+  text-decoration: none;
+  color: #333;
+  margin: 0;
 }
 
 a:hover {
-    color: #f60;
-    transition: color 0.2s linear;
-    -webkit-transition: color 0.2s linear;
-    -moz-transition: color 0.2s linear;
-    -o-transition: color 0.2s linear;
+  color: #f60;
+  transition: color 0.2s linear;
+  -webkit-transition: color 0.2s linear;
+  -moz-transition: color 0.2s linear;
+  -o-transition: color 0.2s linear;
 }
 
 .clear-float:after {
-    content: ' ';
-    width: 0;
-    height: 0;
-    display: block;
-    clear: both;
+  content: ' ';
+  width: 0;
+  height: 0;
+  display: block;
+  clear: both;
 }
 
 .top-header-background {
-    /*background: #ddd;*/
-    /*background-image: -moz-linear-gradient(top, #ffffff, #dddddd); /* Firefox */
-    /*background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #ffffff), color-stop(1, #dddddd)); /* Saf4+, Chrome */
-    /*filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#dddddd', GradientType='0'); /* IE*/
-    background: url(top-nav-bg.png) 0 0 repeat-x;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 100;
+  /*background: #ddd;*/
+  /*background-image: -moz-linear-gradient(top, #ffffff, #dddddd); /* Firefox */
+  /*background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #ffffff), color-stop(1, #dddddd)); /* Saf4+, Chrome */
+  /*filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#dddddd', GradientType='0'); /* IE*/
+  background: url(top-nav-bg.png) 0 0 repeat-x;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
 }
 
 .header-background {
-    background-image: -moz-linear-gradient(top, #ffffff, #dddddd); /* Firefox */
-    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #ffffff), color-stop(1, #dddddd)); /* Saf4+, Chrome */
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#dddddd', GradientType='0'); /* IE*/
+  background-image: -moz-linear-gradient(top, #ffffff, #dddddd); /* Firefox */
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #ffffff), color-stop(1, #dddddd)); /* Saf4+, Chrome */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#dddddd', GradientType='0'); /* IE*/
 }
 
 .header-content-area {
-    font-size: 16px;
-    width: 950px;
-    margin: auto;
-    line-height: 2;
-    color: #fff;
+  font-size: 16px;
+  width: 950px;
+  margin: auto;
+  line-height: 2;
+  color: #fff;
 }
 
 .site-title {
-    float: left;
-    width: 100px;
-    /*text-shadow: 3px 3px 15px #444444;*/
-    font-size: 20px;
+  float: left;
+  width: 100px;
+  /*text-shadow: 3px 3px 15px #444444;*/
+  font-size: 20px;
 }
 
 .user-admin {
-    float: right;
-    width: 800px;
-    text-align: right;
-    margin-top: 8px;
+  float: right;
+  width: 800px;
+  text-align: right;
+  margin-top: 8px;
 }
 
 .header-content-area a {
-    padding: 0 10px;
-    color: #fff;
+  padding: 0 10px;
+  color: #fff;
 }
 
 .site-title a {
-    padding: 0;
+  padding: 0;
 }
 
 .header-content-area a:hover {
-    color: #f60;
-    transition: color 0.2s linear;
-    -webkit-transition: color 0.2s linear;
-    -moz-transition: color 0.2s linear;
-    -o-transition: color 0.2s linear;
+  color: #f60;
+  transition: color 0.2s linear;
+  -webkit-transition: color 0.2s linear;
+  -moz-transition: color 0.2s linear;
+  -o-transition: color 0.2s linear;
 }
 
 .user-admin span {
-    font-size: 12px;
-    padding: 0 10px;
+  font-size: 12px;
+  padding: 0 10px;
 }
 
 .pop-up {
-    font: 12px;
-    position: fixed;
-    top: 200px;
-    left: 50%;
-    margin-left: -200px;
-    width: 400px;
-    background: rgba(255, 255, 255, 0.8);
-    border: 1px solid #ccc;
-    box-shadow: 0 0 5px #ccc;
-    padding-bottom: 10px;
-    z-index: 200;
+  font: 12px;
+  position: fixed;
+  top: 200px;
+  left: 50%;
+  margin-left: -200px;
+  width: 400px;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid #ccc;
+  box-shadow: 0 0 5px #ccc;
+  padding-bottom: 10px;
+  z-index: 200;
 }
 
 .pop-up-title {
-    font-size: 14px;
-    margin: 0;
-    padding: 0;
-    font-weight: bold;
-    line-height: 2;
-    padding: 0 1em;
+  font-size: 14px;
+  margin: 0;
+  padding: 0;
+  font-weight: bold;
+  line-height: 2;
+  padding: 0 1em;
 }
 
 .close-pop-up {
-    float: right;
+  float: right;
 }
 
 .pop-up button {
-    width: 200px;
-    line-height: 22px;
-    font-size: 14px;
-    background: #5B89DA;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    cursor: pointer;
+  width: 200px;
+  line-height: 22px;
+  font-size: 14px;
+  background: #5B89DA;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 .pop-up button:hover {
-    color: #f60;
-    background: #ccc;
-    transition: color 0.2s linear, background 0.2s linear;
-    -webkit-transition: color 0.2s linear, background 0.2s linear;
-    -moz-transition: color 0.2s linear, background 0.2s linear;
-    -o-transition: color 0.2s linear, background 0.2s linear;
+  color: #f60;
+  background: #ccc;
+  transition: color 0.2s linear, background 0.2s linear;
+  -webkit-transition: color 0.2s linear, background 0.2s linear;
+  -moz-transition: color 0.2s linear, background 0.2s linear;
+  -o-transition: color 0.2s linear, background 0.2s linear;
 }
 
 .pop-up .input-field {
-    text-align: center;
-    margin: 10px 0;
-    font-size: 14px;
+  text-align: center;
+  margin: 10px 0;
+  font-size: 14px;
 }
 
 .pop-up .input-field input,
 .pop-up .input-field select,
 .pop-up .input-field textarea {
-    width: 160px;
+  width: 160px;
 }
 
 .pop-up .input-field textarea {
-    height: 50px;
+  height: 50px;
 }
 
 .pop-up .input-field:last-child input {
-    font-size: 16px;
-    width: 80px;
-    margin: 20px 0 10px;
+  font-size: 16px;
+  width: 80px;
+  margin: 20px 0 10px;
 }
 
 .pop-up label {
-    display: inline-block;
-    width: 80px;
-    margin-right: 20px;
-    text-align: right;
-    vertical-align: top;
+  display: inline-block;
+  width: 80px;
+  margin-right: 20px;
+  text-align: right;
+  vertical-align: top;
 }
 
 .J_SignupPopup {
-    top: 100px;
+  top: 100px;
 }
 
 .pop-up .error-msg {
-    margin-right: 54px;
-    color: red;
-    font-size: 12px;
-    text-align: right;
+  margin-right: 54px;
+  color: red;
+  font-size: 12px;
+  text-align: right;
 }
