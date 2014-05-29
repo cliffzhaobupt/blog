@@ -1,61 +1,66 @@
 <div class="blog-list-page-wrapper">
 
-    <%= render(partial: 'pageheader', object: @user) %>
-    
-    <div class="main-content-wrapper clear-float">
-        <div class="left-part">
+  <%= render(partial: 'pageheader', object: @user) %>
 
-        <%= render(partial: 'userinfo', object: @user) %>
-            
-        </div>
-        <div class="right-part">
-            <h1>ブログ</h1>
-            <div class="right-part-content">
-                <div class="blog-wrapper">
-                    <div class="blog-title-wrapper">
-                        <h2><%= @article.title %></h2>
-                        <h3>発表時間：<%= @article.created_at_normalized %></h3>
-                        <h3>タグ：<%= @article.tag.name %></h3>
-                    </div>
-                    <div class="blog-content">
-                        <%= raw @article.article %>
-                    </div>
-                    <div class="blog-bottom-wrapper">
-                        <ul>
-                            <li>閲覧数(<%= @article.read_count %>)</li>
-                            <li>コメント数(<%= @article.comments_count %>)</li>
-                        </ul>
-                    </div>
-                    <% if @could_edit %>
-                    <div class="operate-panel">
-                        <%= link_to '編集', blogs_edit_path(id: @article.id) %>
-                        <%= link_to '削除', blogs_delete_path(userid: @user.id, articleid: @article.id), method: 'delete' %>
-                    </div>
-                    <% end %>
-                </div>
-                <div class="comment-area-wrapper" data-article-id=<%= @article.id %>>
-                    <div class="loading-wrapper"><img src="/assets/loading.gif"></div>
-                    <ul class="comment-list">
-                    </ul>
-                    <ul class="comment-pagination pagination">
-                    </ul>
-                    <div class="add-comment">
-                        <h4>君のコメントは...</h4>
-                        <div>
-                            <textarea class="comment-textarea"></textarea>
-                        </div>
-                        <div class="button-wrapper">
-                            <% if @login %>
-                            <button data-login-id=<%= @id_login %>>コメントを追加</button>
-                            <% else %>
-                            <button>コメントを追加</button>
-                            <% end %>
-                        </div>
-                        
-                    </div>    
-                </div>
-                
-            </div>
-        </div>
+  <div class="main-content-wrapper clear-float">
+    <div class="left-part">
+
+      <%= render(partial: 'userinfo', object: @user) %>
+
     </div>
+    <div class="right-part">
+      <h1>ブログ</h1>
+      <div class="right-part-content">
+        <div class="blog-wrapper">
+          <div class="blog-title-wrapper">
+            <h2><%= @article.title %></h2>
+            <h3>発表時間：<%= @article.created_at_normalized %></h3>
+            <h3>タグ：<%= @article.tag.name %></h3>
+          </div>
+          <div class="blog-content">
+            <%= raw @article.article %>
+          </div>
+          <div class="blog-bottom-wrapper">
+            <ul>
+              <li>閲覧数(<%= @article.read_count %>)</li>
+              <li>コメント数(<%= @article.comments_count %>)</li>
+            </ul>
+          </div>
+          <% if @could_edit %>
+          <div class="operate-panel">
+            <%= link_to '編集', blogs_edit_path(id: @article.id) %>
+            <%= link_to '削除', blogs_delete_path(userid: @user.id, articleid: @article.id), method: 'delete' %>
+          </div>
+          <% end %>
+        </div>
+        <div class="comment-area-wrapper" data-article-id=<%= @article.id %>>
+          <div class="loading-wrapper"><img src="/assets/loading.gif"></div>
+          <ul class="comment-list">
+          </ul>
+          <ul class="comment-pagination pagination">
+          </ul>
+          <div class="add-comment">
+            <h4>君のコメントは...</h4>
+            <div class="add-reply-to-comment-info">
+              <a href="javasript:void(0)" class="cancel-reply-btn">X</a>
+              <h4 class="add-reply-to-comment-title"></h4>
+              <p class="add-reply-to-comment-content"></p>
+            </div>
+            <div>
+              <textarea class="comment-textarea"></textarea>
+            </div>
+            <div class="button-wrapper">
+              <% if @login %>
+              <button data-login-id=<%= @id_login %>>コメントを追加</button>
+              <% else %>
+              <button>コメントを追加</button>
+              <% end %>
+            </div>
+
+          </div>    
+        </div>
+
+      </div>
+    </div>
+  </div>
 </div>

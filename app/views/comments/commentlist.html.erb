@@ -1,0 +1,26 @@
+<ul class="comment-list" data-current-page=<%= @current_page %> data-page-count=<%= @page_count %>>
+  <% @comments.each do |comment| %>
+  <li class="comment-item">
+    <button class="reply-to-btn" data-reply-to-id=<%= comment.id %>>返事を書く</button>
+    <a class="user-small-logo" href=<%= blogs_listbyuser_path(id: comment.user.id) %>>
+      <%= image_tag users_small_photo_path(id: comment.user_id) %>
+    </a>
+    <div class="comment-info">
+      <h4 class="comment-title">
+        <%= comment.time_shown_in_webpage %> 
+        <%= link_to comment.user.username, blogs_listbyuser_path(id:comment.user.id) %>
+      </h4>
+      <% if comment.reply_to %>
+      <div class="reply-to-comment-wrapper">
+        <h4 class="reply-to-comment-title">
+          <%= comment.reply_to.time_shown_in_webpage %> 
+          <%= link_to comment.reply_to.user.username, blogs_listbyuser_path(id: comment.reply_to.user.id) %>
+        </h4>
+        <%= simple_format comment.reply_to.comment, class: "reply-to-comment-content" %>
+      </div>
+      <% end %>
+      <%= simple_format comment.comment, class: "comment-content" %>
+    </div>
+  </li>
+  <% end %>
+</ul>

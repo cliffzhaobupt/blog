@@ -72,11 +72,14 @@ $('document').ready(function () {
     },
     success: function (data) {
       loadingIcon.hide();
-      var comments = data.comments;
-      if (comments.length > 0) {
+      var commentListFromServer = $(data),
+          pageCount = parseInt(commentListFromServer.attr('data-page-count'));
+  
+      if (pageCount > 0) {
         // Display the comment list
-        commentList.append(Mustache.render(commentTempl, data));
-        var pageCount = data.page_count;
+        // commentList.append(Mustache.render(commentTempl, data));
+        commentList.append(commentListFromServer.html());
+        // var pageCount = data.page_count;
         // Initialize the pagination
         commentPagination
         .append(generatePageLiSetCode(1, pageCount))
@@ -96,10 +99,15 @@ $('document').ready(function () {
             },
             success: function (data) {
               loadingIcon.hide();
-              commentList.append(Mustache.render(commentTempl, data));
+              // commentList.append(Mustache.render(commentTempl, data));
+              var commentListFromServer = $(data),
+                pageCount = parseInt(commentListFromServer.attr('data-page-count'));
+              commentList.append(commentListFromServer.html());
+
               commentPagination
                 .empty()
-                .append(generatePageLiSetCode(nextPage, data.page_count));
+                // .append(generatePageLiSetCode(nextPage, data.page_count));
+                .append(generatePageLiSetCode(nextPage, pageCount));
               commentArea.scrollIntoView();
             }
           });
@@ -121,22 +129,52 @@ $('document').ready(function () {
         data: {
           'content': textArea.val(),
           'login_id': target.attr('data-login-id'),
-          'article_id': articleId
+          'article_id': articleId,
+          'reply_to_id': replyToId
         },
         beforeSend: function () {
-          commentList.empty()
+          commentList.empty();
           loadingIcon.show();
         },
         success: function (data) {
           loadingIcon.hide();
           textArea.val('');
-          commentList.append(Mustache.render(commentTempl, data));
+          // commentList.append(Mustache.render(commentTempl, data));
+          var commentListFromServer = $(data),
+                pageCount = parseInt(commentListFromServer.attr('data-page-count'));
+              commentList.append(commentListFromServer.html());
           commentPagination
             .empty()
-            .append(generatePageLiSetCode(data.page_count, data.page_count));
+            // .append(generatePageLiSetCode(data.page_count, data.page_count));
+            .append(generatePageLiSetCode(1, pageCount));
+
           commentArea.scrollIntoView();
+          $('.cancel-reply-btn').trigger('click');
         }
       });
     }
+  });
+
+  // Add reply to comment
+  var addReplyTitleWrapper = $('.add-reply-to-comment-title'),
+    addReplyContentWrapper = $('.add-reply-to-comment-content'),
+    addReplyInfoWrapper = $('.add-reply-to-comment-info'),
+    addCommentArea = $('.add-comment').get(0),
+    replyToId = '';
+
+  $('body').delegate('.reply-to-btn', 'click', function (e) {
+    var target = $(e.currentTarget),
+      replyToInfoWrapper = target.siblings('.comment-info');
+    replyToId = target.attr('data-reply-to-id');
+    addReplyTitleWrapper.text(replyToInfoWrapper.children('.comment-title').text());
+    addReplyContentWrapper.html(replyToInfoWrapper.children('.comment-content').html());
+    addReplyInfoWrapper.show();
+    addCommentArea.scrollIntoView();
+  });
+
+  // Cancel replying to comment
+  $('.cancel-reply-btn').bind('click', function (e) {
+    addReplyInfoWrapper.hide();
+    replyToId = '';
   });
 });
