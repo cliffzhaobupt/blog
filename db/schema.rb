@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140526050226) do
+ActiveRecord::Schema.define(version: 20140527084640) do
 
   create_table "blog_articles", force: true do |t|
     t.string   "title"
@@ -65,14 +65,15 @@ ActiveRecord::Schema.define(version: 20140526050226) do
     t.string   "email"
     t.string   "gender"
     t.string   "self_intro"
-    t.integer  "popularity",          default: 0
+    t.integer  "popularity",              default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "blog_articles_count", default: 0
-    t.integer  "tags_count",          default: 0
+    t.integer  "blog_articles_count",     default: 0
+    t.integer  "tags_count",              default: 0
     t.binary   "photo"
     t.binary   "small_photo"
-    t.integer  "photos_count",        default: 0
+    t.integer  "photos_count",            default: 0
+    t.integer  "received_messages_count"
   end
 
 end
