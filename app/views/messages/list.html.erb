@@ -62,6 +62,8 @@
           </ul>
           <% if @page_count > 1 %>
           <button id="load-more-message-btn" class="load-more-message-btn">もっと見る</button>
+          <% else %>
+          <button id="load-more-message-btn" class="disabled-load-message-btn load-more-message-btn">もっと見る</button>
           <% end %>
         </div>
     </div>

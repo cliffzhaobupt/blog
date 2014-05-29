@@ -140,9 +140,9 @@
 
 .blog-list-page-wrapper .main-content-wrapper .right-part .load-more-message-btn {
   width: 100%;
+  display: block;
 }
 
 .blog-list-page-wrapper .main-content-wrapper .right-part .disabled-load-message-btn {
-  color: #f60;
-  background: #CCCCCC;
+  display: none;
 }

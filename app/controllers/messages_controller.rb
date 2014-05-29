@@ -18,7 +18,15 @@ class MessagesController < ApplicationController
   def add
     message = Message.new(message_params)
     message.save
-    redirect_to :back
+    
+    @user = User.find(params[:message][:receiver_id])
+    @current_page = 1
+    @page_count = (@user.received_messages.size / Float(MessagePerPage)).ceil
+    @messages = @user.received_messages
+      .order('created_at DESC')
+      .limit(MessagePerPage)
+
+    render 'listonlymessage', layout: false
   end
 
   private

@@ -53,4 +53,30 @@ $('document').ready(function () {
       }
     });
   });
+
+  //ajax add message
+  var replyCancelBtn = $('.reply-cancel-btn'),
+    addMessageTextarea = $('.add-message-textarea'),
+    loadMoreMessageBtn = $('.load-more-message-btn');
+
+  $('.add-message-form').bind('submit', function (e) {
+    e.preventDefault();
+
+    $(this).ajaxSubmit({
+      success: function (data) {
+        var messageListFromServer = $(data),
+          pageCount = parseInt(messageListFromServer.attr('data-page-count'));
+        messageListWrapper.attr({
+          'data-current-page': 1,
+          'data-page-count': pageCount
+        }).html(messageListFromServer.html());
+
+        replyCancelBtn.trigger('click');
+        addMessageTextarea.val('');
+        if (pageCount > 1) {
+          loadMoreMessageBtn.removeClass('disabled-load-message-btn');
+        }
+      }
+    });
+  });
 });
