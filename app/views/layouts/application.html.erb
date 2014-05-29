@@ -12,7 +12,7 @@
             <div class="site-title">
                 <%= link_to 'ブログ課題', users_index_path %>
             </div>
-            <div class="user-admin">
+            <div class="user-admin" data-login=<%= @id_login %>>
                 <% unless @login %>
                     <a class="J_LogInBtn" href="javascript:void(0)">ログイン</a>
                     <a class="J_SignUpBtn" href="javascript:void(0)">登録</a>

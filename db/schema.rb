@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140529052506) do
+ActiveRecord::Schema.define(version: 20140529091002) do
 
   create_table "blog_articles", force: true do |t|
     t.string   "title"
@@ -40,6 +40,15 @@ ActiveRecord::Schema.define(version: 20140529052506) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "reply_to_id"
+  end
+
+  create_table "notifications", force: true do |t|
+    t.integer  "user_id"
+    t.string   "notification_type"
+    t.integer  "item_id"
+    t.boolean  "checked",           default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "photos", force: true do |t|

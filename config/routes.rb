@@ -7,6 +7,11 @@ Blog::Application.routes.draw do
   get "users/index"
   get "users/photo"
   get "users/small_photo"
+  get "users/notification"
+  get "users/clear_message_notification"
+  get "users/clear_message_reply_notification"
+  get "users/clear_comment_notification"
+  get "users/clear_comment_reply_notification"
   
   get "blogs/listbyuser"
   get "blogs/articledetail"

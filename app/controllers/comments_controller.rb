@@ -13,7 +13,7 @@ class CommentsController < ApplicationController
   end
   
   def new
-    Comment.create({
+    comment = Comment.create({
       comment: params[:content],
       user_id: params[:login_id],
       blog_article_id: params[:article_id],
@@ -27,6 +27,22 @@ class CommentsController < ApplicationController
       .offset((@current_page - 1) * CommentPerPage)
       .limit(CommentPerPage)
     # render json: Comment.generate_comment_hash(params[:article_id], CommentPerPage)
+
+    unless article.user_id == comment.user_id
+      article.user.notifications.create(
+        notification_type: 'comment',
+        item_id: article.id
+      )  
+    end
+
+    if comment.reply_to
+      # && article.user_id != comment.reply_to.user_id
+      comment.reply_to.user.notifications.create(
+        notification_type: 'comment_reply',
+        item_id: comment.reply_to.blog_article_id
+        )
+    end
+
     render 'commentlist', layout: false
   end
 

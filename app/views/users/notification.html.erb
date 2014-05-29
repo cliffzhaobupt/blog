@@ -1,0 +1,26 @@
+<ul class="notification-pop-up">
+  <% if @message_count > 0 %>
+  <li class="notification-item">
+    <%= link_to "#{@message_count}件　新しいメッセージ", users_clear_message_notification_path %>
+  </li>
+  <% end %>
+
+  <% @message_replies.each do |message_reply| %>
+  <li class="notification-item">
+    <%= link_to "#{message_reply[:user_name]} のボックスで #{message_reply[:replies_count]} 件返事メッセージ", users_clear_message_reply_notification_path(id: message_reply[:user_id]) %>
+  </li>
+  <% end %>
+
+  <% @comments.each do |comment| %>
+  <li class="notification-item">
+    <%= link_to "「#{comment[:article_title]}」 で #{comment[:comments_count]} 件新しいコメント", users_clear_comment_notification_path(id: comment[:article_id]) %>
+  </li>
+  <% end %>
+
+  <% @comment_replies.each do |comment_reply| %>
+  <li class="notification-item">
+    <%= link_to "「#{comment_reply[:article_title]}」 で #{comment_reply[:replies_count]} 件返事コメント", users_clear_comment_reply_notification_path(id: comment_reply[:article_id]) %>
+  </li>
+  <% end %>
+  <a href="javascript:void(0)" class="slide-btn slide-down">+</a>
+</ul>
