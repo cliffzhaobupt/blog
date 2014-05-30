@@ -171,3 +171,39 @@ After marking photos and change content in textareas, user could click "編集�
 <img src="https://github.com/cliffzhaobupt/blog/raw/master/sampleimg/uploadphotoinblog.gif"/>
 
 When user editting blog article, he can click the link of adding photo, and then select one local photo and update it to the server. After being updated, the photo is appended into the current article.
+
+## Week 6
+
+To check the functions realized this week, you need to pull the branch called <tt>notification</tt>.
+
+### Comment Reply
+
+<img src="https://github.com/cliffzhaobupt/blog/raw/notification/sampleimg/replycomment.gif"/>
+
+User can reply to another user's comment in blog article.
+
+### Message Box
+
+<img src="https://github.com/cliffzhaobupt/blog/raw/notification/sampleimg/messagebox.gif"/>
+
+In message box, after log in, user can leave messages to the owner of the message box and reply to messages of any other user in message box.
+
+### Notification
+
+<img src="https://github.com/cliffzhaobupt/blog/raw/notification/sampleimg/notification.gif"/>
+
+<img src="https://github.com/cliffzhaobupt/blog/raw/notification/sampleimg/notification2.gif"/>
+
+After login, user can receive notifications in any web page.
+
+There are 4 kinds of notifications.
+
+1. new messages in the message box of the user
+
+2. messages written by this user is replied by others
+
+3. new comments in the article written by this user
+
+4. comments written by this user is replied by others
+
+After clicking the link notification pop-up, the corresponding notification will not be shown again.
